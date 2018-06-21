@@ -1,12 +1,17 @@
 "use strict";
 import React, { Component } from 'react';
+import Page from './components/Page';
 
-class App extends Component {
+export default class App extends Component {
+  componentDidMount(){
+    document.title = "FitBox";
+  }
+
   render() {
     return (
-      <p>Hello, World!</p>
+      <Page>
+        <p>Hello, World!</p>
+      </Page>
     );
   }
 }
-
-export default App;
