@@ -1,7 +1,7 @@
 "use strict";
 
 import React from 'react';
-import Page from '../components/Page';
+import Login from '../components/Login';
 
 
 export class LoginView extends React.Component {
@@ -11,11 +11,15 @@ export class LoginView extends React.Component {
         this.state = {};
     }
 
+    login(user) {
+        console.log("HAYDAR");
+        console.log(user);
+    }
+
     render() {
         return (
-            <Page>
-            <p>Login View!</p>
-          </Page>
+          <Login onSubmit={(user) => this.login(user)} error={this.state.error}>
+          </Login>
         );
     }
 }
