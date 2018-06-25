@@ -1,15 +1,14 @@
 "use strict";
 
 import React from 'react';
-import Login from '../components/Login';
+import Register from '../components/Register';
 
-
-export class LoginView extends React.Component {
+export class RegisterView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            title : 'FitBox - Login'
+            title : 'FitBox - Register'
         };
         document.title = this.state.title;
     }
@@ -18,15 +17,14 @@ export class LoginView extends React.Component {
         document.title = this.state.title;
     }
 
-    login(user) {
-        console.log("HAYDAR");
+    register(user) {
         console.log(user);
     }
 
     render() {
         return (
-          <Login onSubmit={(user) => this.login(user)} error={this.state.error}>
-          </Login>
+          <Register onSubmit={(user) => this.register(user) }>
+          </Register>
         );
     }
 }

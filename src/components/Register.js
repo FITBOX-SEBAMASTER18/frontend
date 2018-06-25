@@ -9,17 +9,21 @@ import Page from './Page';
 import { AlertMessage } from './AlertMessage';
 
 
-class Login extends React.Component {
+class Register extends React.Component {
     constructor (props) {
         super(props);
 
         this.state = {
             username : '',
-            password : ''
+            password : '',
+            firstname : '',
+            lastname : ''
         };
 
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleChangeFirstname = this.handleChangeFirstname.bind(this);
+        this.handleChangeLastname = this.handleChangeLastname.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -29,7 +33,9 @@ class Login extends React.Component {
 
         let user = {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            firstname: this.state.firstname,
+            lastname: this.state.lastname
         };
 
         this.props.onSubmit(user);
@@ -41,6 +47,14 @@ class Login extends React.Component {
 
     handleChangePassword(value) {
         this.setState(Object.assign({}, this.state, {password: value}));
+    }
+
+    handleChangeFirstname(value) {
+        this.setState(Object.assign({}, this.state, {firstname: value}));
+    }
+
+    handleChangeLastname(value) {
+        this.setState(Object.assign({}, this.state, {lastname: value}));
     }
 
     render() {
@@ -67,11 +81,29 @@ class Login extends React.Component {
                                 value={this.state.password}
                                 onChange={this.handleChangePassword}
                                 errorText="Password is required"/>
+                            <TextField
+                                label="Firstname"
+                                id="FirstnameField"
+                                type="text"
+                                className="md-row md-full-width"
+                                required={true}
+                                value={this.state.firstname}
+                                onChange={this.handleChangeFirstname}
+                                errorText="Firstname is required"/>
+                            <TextField
+                                label="Lastname"
+                                id="LastnameField"
+                                type="text"
+                                className="md-row md-full-width"
+                                required={true}
+                                value={this.state.lastname}
+                                onChange={this.handleChangeLastname}
+                                errorText="Lastname is required"/>
                             <Button id="submit" type="submit"
-                                disabled={this.state.username == undefined || this.state.username == '' || this.state.password == undefined || this.state.password == '' ? true : false}
-                                raised primary className="md-row md-full-width">Login
+                                disabled={this.state.username == undefined || this.state.username == '' || this.state.password == undefined || this.state.password == '' || this.state.firstname == undefined || this.state.firstname == '' || this.state.lastname == undefined || this.state.lastname == '' ? true : false}
+                                raised primary className="md-row md-full-width">Register
                             </Button>
-                            <Link to={'/register'} className="md-row md-full-width">Not registered yet?</Link>
+                            <Link to={'/login'} className="md-row md-full-width">Do you have an account?</Link>
                             <AlertMessage className="md-row md-full-width" >{this.props.error ? `${this.props.error}` : ''}</AlertMessage>
                         </div>
                     </div>
@@ -81,4 +113,4 @@ class Login extends React.Component {
     }
 }
 
-export default withRouter(Login);
+export default withRouter(Register);
