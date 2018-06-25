@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { MainView } from './views/MainView';
+import { Home } from './views/Home';
 import { LoginView } from './views/LoginView';
 import { SignupView } from './views/SignupView';
 
@@ -12,7 +12,7 @@ export default class App extends React.Component {
     this.state = {
         title: 'FitBox Example App',
         routes: [
-            { component: MainView , path: '/', exact: true},
+            { component: Home, path: '/', exact: true},
             { component: LoginView, path: '/login'},
             { component: SignupView, path: '/register'}
         ]
