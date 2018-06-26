@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { MainView } from './views/MainView';
 import { LoginView } from './views/LoginView';
-import { MenuView } from './views/MenuView';
+import { MealListView } from './views/MealListView';
 import { RegisterView } from './views/RegisterView';
 
 export default class App extends React.Component {
@@ -16,7 +16,7 @@ export default class App extends React.Component {
             { component: MainView , path: '/', exact: true},
             { component: LoginView, path: '/login'},
             { component: RegisterView, path: '/register'},
-            { component: MenuView, path: '/menu'},
+            { component: MealListView, path: '/meals'}
         ]
     };
     document.title = this.state.title;
