@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { MainView } from './views/MainView';
 import { LoginView } from './views/LoginView';
 import { SignupView } from './views/SignupView';
+import { MenuView } from './views/MenuView';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ export default class App extends React.Component {
         routes: [
             { component: MainView , path: '/', exact: true},
             { component: LoginView, path: '/login'},
-            { component: SignupView, path: '/register'}
+            { component: SignupView, path: '/register'},
+            { component: MenuView, path: '/menu'}
         ]
     };
   }
