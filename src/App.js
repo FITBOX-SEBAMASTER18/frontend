@@ -17,7 +17,7 @@ export default class App extends React.Component {
             { component: MainView , path: '/', exact: true},
             { component: LoginView, path: '/login'},
             { component: SignupView, path: '/register'},
-            { component: MenuView, path: '/menu'}
+            { component: MenuView, path: '/menu'},
             { component: RegisterView, path: '/register'}
         ]
     };
