@@ -11,7 +11,7 @@ export class MealListView extends React.Component {
         this.state = {
             title: 'FitBox - Meals',
             filters: ['Ben', 'Sen', 'O'],
-            meals: ''
+            meals: ['Hamburger','Hamburger','Hamburger','Hamburger','Hamburger','Hamburger']
         };
     }
 
