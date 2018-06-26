@@ -3,24 +3,25 @@ import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Home } from './views/Home';
 import { LoginView } from './views/LoginView';
-import { SignupView } from './views/SignupView';
+import { RegisterView } from './views/RegisterView';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        title: 'FitBox Example App',
+        title: 'FitBox',
         routes: [
             { component: Home, path: '/', exact: true},
             { component: LoginView, path: '/login'},
-            { component: SignupView, path: '/register'}
+            { component: RegisterView, path: '/register'}
         ]
     };
+    document.title = this.state.title;
   }
 
   componentDidMount(){
-      document.title = this.state.title;
+    document.title = this.state.title;
   }
 
   render() {
