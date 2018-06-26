@@ -19,7 +19,6 @@ export class LoginView extends React.Component {
     }
 
     login(user) {
-        console.log("HAYDAR");
         console.log(user);
     }
 
