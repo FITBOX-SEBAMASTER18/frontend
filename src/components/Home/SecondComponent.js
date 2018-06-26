@@ -1,10 +1,21 @@
 import React from "react";
+import { Grid, Cell, FontIcon } from 'react-md';
 
 export default () => {
     return (
-        <div className="component second-component">
-            <h2>Second Component</h2>
-            <img src="http://www.templebethelofnorthbergen.org/wp-content/uploads/2012/09/join2.png"/>
-        </div>
+    	<Grid>
+    		<Cell size={4} phoneSize={12}>
+    			<div>
+			    	<FontIcon >fastfood</FontIcon>
+			    	<p> Choose meal </p>
+			    </div>
+    		</Cell>
+    		<Cell size={4} phoneSize={12}>
+    			It works
+    		</Cell>
+    		<Cell size={4} phoneSize={12}>
+    			Like this
+    		</Cell>
+    	</Grid>
     )
 }

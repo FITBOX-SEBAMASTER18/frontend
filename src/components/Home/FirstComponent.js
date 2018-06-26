@@ -1,10 +1,13 @@
 import React from "react";
+import { Grid, Cell, Media, CardTitle, MediaOverlay} from 'react-md';
 
 export default () => {
     return (
-        <div className="intro">
-            <h1>We are FitBox and this is our intro</h1>
-            <img src="https://www.ocf.berkeley.edu/~sather/wp-content/uploads/2018/01/food--1200x600.jpg"/>
-        </div>
+	    	<Media aspectRatio="16-9">
+	    		<img src="https://dynamicmedia.zuza.com/zz/m/original_/4/5/45d5ab38-5b77-45d6-b685-21b90f8c9f79/Column-4-Food___Super_Portrait.jpg"/>
+	    			<MediaOverlay>
+						<CardTitle title="Wow. Amazing." />
+					</MediaOverlay>
+	    	</Media>
     )
 }

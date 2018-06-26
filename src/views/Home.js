@@ -30,13 +30,11 @@ export class Home extends React.Component {
     render() {
         return (
             <Page>
-            <ReactPageScroller ref={c => this._pageScroller = c} pageOnChange={this.pageOnChange}>
                 <FirstComponent/>
                 <SecondComponent/>
                 <ThirdComponent/>
                 <FourthComponent goToPage={this.goToPage}/>
                 <FifthComponent/>
-            </ReactPageScroller>
             </Page>
         );
     }
