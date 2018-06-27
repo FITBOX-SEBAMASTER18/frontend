@@ -20,10 +20,13 @@ class Header extends React.Component {
                 children={
                     <HeaderTabs></HeaderTabs>
                 }
+                actions={
+                    <Button flat primary swapTheming onClick={() => this.props.history.push('/login')} >Login / Shopping Cart</Button>
+                }
             >
             </Toolbar>
         );
     }
 };
 
-export default Header;
+export default withRouter(Header);
