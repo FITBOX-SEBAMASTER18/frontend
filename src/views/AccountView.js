@@ -1,6 +1,7 @@
 import React from 'react';
 import Page from '../components/Page';
 import MyProfile from '../components/MyProfile';
+import MyAdress from '../components/MyAdress';
 import { withRouter } from 'react-router-dom';
 import { List, ListItem, CardTitle, Media, MediaOverlay, Grid, Cell } from 'react-md';
 
@@ -10,13 +11,11 @@ class AccountView extends React.Component {
 	  super(props);
 		this.state = {
 			title : 'FitBox - My Account',
-			paymentProviders: [],
-         	indexOfClickedItem: -1,
-         	viewForm: false
+         	indexOfClickedItem: -1
         };
 		document.title = this.state.title;
     	this.onListItemClicked = this.onListItemClicked.bind(this);
-    	this.mainContent = null;  //this
+    	this.mainContent = <MyProfile />;  //this
   };
 
     onListItemClicked(index) {
@@ -27,10 +26,8 @@ class AccountView extends React.Component {
 		let data = "none";
 	  if(index == 0){
 		data = <MyProfile />
-	  }else if(index == 1){
-		data="prefs"
-	  }else if(index == 2){
-		data="adress"
+	  }else{
+		data=<MyAdress />
 	  }
 
 	  this.mainContent = <p>{data}</p>;
@@ -47,13 +44,11 @@ class AccountView extends React.Component {
 					style={{width: 300, height: 300}}/>
 					<List >
       					<ListItem primaryText="My Profile" onClick= {() => this.onListItemClicked(0)}/>
-      					<ListItem primaryText="My Preferences"  onClick={() => this.onListItemClicked(1)}/>
-      					<ListItem primaryText="My Adresses" onClick={() => this.onListItemClicked(2)}/>
+      					<ListItem primaryText="My Adresses" onClick={() => this.onListItemClicked(1)}/>
     				</List>
 				</Cell>
-      			<Cell size={6}>
-					{(this.mainContent) ?
-  						this.mainContent : 'none'}
+      			<Cell size={6} style={{margin: 30}}>
+  					{this.mainContent} 
 				</Cell>
     		</Grid>
 		</Page>

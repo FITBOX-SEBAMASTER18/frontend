@@ -51,7 +51,7 @@ class MyProfile extends React.Component {
     render() {
         return (    
                 <form className="md-grid" onSubmit={this.handleSubmit}>
-                    <div className = "md-cell--center md-cell--6">
+                    <div className = "md-cell--4">
                         <div className ="md-grid">
                             <TextField
                                 label = "Email/Username"
