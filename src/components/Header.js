@@ -18,7 +18,7 @@ class Header extends React.Component {
                 nav={<Button onClick={() => this.props.history.push('/')} icon>home</Button>}
                 title={this.props.title}
                 children={
-                    <HeaderTabs></HeaderTabs>
+                    <HeaderTabs activeTab={this.props.activeTab}></HeaderTabs>
                 }
                 actions={
                     <Button flat primary swapTheming onClick={() => this.props.history.push('/login')} >Login / Shopping Cart</Button>

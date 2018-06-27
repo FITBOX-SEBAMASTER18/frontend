@@ -9,9 +9,8 @@ class AccountView extends React.Component {
   };
 
 	render() {
-    console.log("MealsView");		
 	  return (
-	      <Page>
+	      <Page activeTab={3}>
 	      	<p> Hello AccountView </p>
 	      </Page>
 	  );

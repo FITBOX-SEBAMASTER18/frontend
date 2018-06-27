@@ -6,7 +6,15 @@ class HeaderTabs extends React.Component {
 
   constructor(props) {
       super(props);
+      this.state = {
+      	activeTabIndex: 1
+      }
+      this.handleTabChange = this.handleTabChange.bind(this);
   }
+
+  handleTabChange(newTabIndex, evt){
+  	console.log("Changed tab to:" + newTabIndex);
+  };
 
 	render(){
 		return (
@@ -15,6 +23,8 @@ class HeaderTabs extends React.Component {
       			tabId="header-tabs"
 	          onTabChange={this.handleTabChange}
 	          style={ {marginTop: "14px"}}
+          	activeTabIndex={this.props.activeTab}
+          	onTabChange={this.handleTabChange}
 		      >
 		          	<Tab label="Meals" onClick={() => this.props.history.push('/meals')}>
 		            </Tab>

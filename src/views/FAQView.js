@@ -10,7 +10,7 @@ class FAQView extends React.Component {
 
 	render() {	
 	  return (
-	      <Page>
+	      <Page activeTab={2}>
 	      	<p> Hello FAQView </p>
 	      </Page>
 	  );

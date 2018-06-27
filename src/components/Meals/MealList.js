@@ -14,7 +14,7 @@ class MealList extends React.Component {
 
     render() {
         return (    
-            <Page>
+            <Page activeTab={0}>
                 <div className="md-grid">
                     <div className = "md-cell md-cell--3">
                         <MealFilter filters={this.props.filters}/>

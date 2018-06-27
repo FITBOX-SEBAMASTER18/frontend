@@ -10,7 +10,7 @@ class AboutView extends React.Component {
 
 	render() {	
 	  return (
-	      <Page>
+	      <Page activeTab={1}>
 	      	<p> Hello AboutView </p>
 	      </Page>
 	  );
