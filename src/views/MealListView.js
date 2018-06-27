@@ -1,18 +1,38 @@
 "use strict";
 
 import React from 'react';
-import Page from '../components/Page';
 import MealList from '../components/Meals/MealList';
+import MealService from '../services/MealService';
 
 export class MealListView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             title: 'FitBox - Meals',
-            filters: ['Ben', 'Sen', 'O'],
-            meals: ['Hamburger','Hamburger','Hamburger','Hamburger','Hamburger','Hamburger']
+            filters: [],
+            meals: []
         };
+    }
+
+    componentWillMount() {
+        this.setState({
+            loading: true
+        })
+        MealService.getFilters().then(data => {
+            this.setState({
+                filters: data
+            })
+            return MealService.getMeals()
+        }).then( data => {
+            this.setState({
+                meals: data,
+                loading: false
+            })            
+        }).catch(e => {
+            console.log(e)
+        })
     }
 
     componentDidMount(){

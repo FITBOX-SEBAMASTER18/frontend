@@ -18,14 +18,14 @@ class MealList extends React.Component {
 
     render() {
         return (  
-            <Page>
+            <Page isLoading = {this.props.isLoading}>
                 <Grid>
                 <Cell phoneHidden={true} tabletSize={2} desktopSize={3}>
                     <MealFilter filters={this.props.filters}/>
                 </Cell>
                 <Cell phoneSize={6} tabletSize={6} desktopSize={9}>
                     <Grid>
-                    {this.props.meals.map((meal, i) => <MealListItem meal={meal}/>)}
+                    {this.props.meals.map((meal, i) => <MealListItem key={i} meal={meal}/>)}
                     </Grid>
                 </Cell>
                 </Grid>

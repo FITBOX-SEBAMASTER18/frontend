@@ -1,7 +1,7 @@
 "use strict";
 
 import React from 'react';
-import { DataTable, TableBody, TableRow, TableColumn } from 'react-md';
+import { DataTable, TableBody, TableRow, TableColumn, TableHeader } from 'react-md';
 
 
 export class MealFilter extends React.Component
@@ -12,9 +12,19 @@ export class MealFilter extends React.Component
 
     render() {
         return (
-            <DataTable>
+            <DataTable 
+                baseId='filter' 
+                onRowToggle = {(id, checked) => this.props.filters[id-1].isSelected = checked} 
+                defaultSelectedRows = {this.props.filters.map(filter => filter.isSelected)}>
+                <TableHeader>
+                    <TableRow selectable={false}>
+                        <TableColumn>
+                            <h4>Filter</h4>
+                        </TableColumn>
+                    </TableRow>
+                </TableHeader>
                 <TableBody>
-                    {this.props.filters.map((filter, i) => <TableRow><TableColumn> {filter} </TableColumn></TableRow>)}
+                    {this.props.filters.map((filter, i) => <TableRow key={i}><TableColumn> {filter.text} </TableColumn></TableRow>)}
                 </TableBody>
             </DataTable>
         );
