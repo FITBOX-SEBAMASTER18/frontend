@@ -11,8 +11,8 @@ export default class MealService {
 
     static getMeals() {
         return new Promise((resolve, reject) => {
-            var meals = ['Hamburger','Hamburger','Hamburger','Hamburger','Hamburger','Hamburger'];
-            setTimeout(() => resolve(meals), 1000);
+            var meals = ['Hamburger','Hamburger2','Hamburger3','Hamburger4','Hamburger5','Hamburger6'];
+            resolve(meals);
         }) 
     //    return new Promise((resolve, reject) => {
     //        HttpService.get(this.baseURL(), function(data) {
@@ -42,7 +42,7 @@ export default class MealService {
     static getFilters() {
         return new Promise((resolve, reject) => {
             var filters = [{text:'Ben', isSelected: true}, {text:'Sen', isSelected: false}, {text:'O', isSelected: true}];
-            setTimeout(() => resolve(filters), 1000);
+            resolve(filters);
         }) 
         // return new Promise((resolve, reject) => {
         //     HttpService.get(`${MealService.baseURL()}/filters`, function(data) {

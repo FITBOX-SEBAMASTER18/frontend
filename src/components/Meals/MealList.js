@@ -16,6 +16,10 @@ class MealList extends React.Component {
         super(props);
     }
 
+    handleMealClick(meal) {
+        console.log(meal);
+    }
+
     render() {
         return (  
             <Page isLoading = {this.props.isLoading}>
@@ -25,7 +29,7 @@ class MealList extends React.Component {
                 </Cell>
                 <Cell phoneSize={6} tabletSize={6} desktopSize={9}>
                     <Grid>
-                    {this.props.meals.map((meal, i) => <MealListItem key={i} meal={meal}/>)}
+                    {this.props.meals.map((meal, i) => <MealListItem key={i} meal={meal} handleMeal={(meal) => this.handleMealClick(meal)}/>)}
                     </Grid>
                 </Cell>
                 </Grid>
