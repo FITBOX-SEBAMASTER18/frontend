@@ -4,6 +4,7 @@ import React from 'react';
 import Page from '../components/Page';
 import {
     Avatar,
+    Button,
     Cell,
     Divider,
     FontIcon,
@@ -31,23 +32,24 @@ export class OrderView extends React.Component {
                             <Subheader primaryText="YOUR ORDER" primary />
                             <ListItem
                                 leftIcon={<FontIcon key="local_dining">local_dining</FontIcon>}
-                                rightIcon={<FontIcon key="delete">delete</FontIcon>}
+                                rightIcon={<Button icon primary>delete</Button>}
                                 primaryText="Spaghetti Parmesan"
                                 secondaryText={'x3'}
                             />
                             <ListItem
                                 leftIcon={<FontIcon key="local_dining">local_dining</FontIcon>}
-                                rightIcon={<FontIcon key="delete">delete</FontIcon>}
+                                rightIcon={<Button icon primary>delete</Button>}
                                 primaryText="Spaghetti Parmesan"
                                 secondaryText={'x3'}
                             />
                             <ListItem
                                 leftIcon={<FontIcon key="local_dining">local_dining</FontIcon>}
-                                rightIcon={<FontIcon key="delete">delete</FontIcon>}
+                                rightIcon={<Button icon primary>delete</Button>}
                                 primaryText="Spaghetti Parmesan"
                                 secondaryText={'x3'}
                             />
                         </List>
+                        <Button raised primary>Confirm Order</Button>
                     </div>
                     <div className="md-cell md-cell--3">
                         <SelectionControlGroup
@@ -58,10 +60,10 @@ export class OrderView extends React.Component {
                             defaultValue="A"
                             controls={[{
                                 label: 'Home',
-                                value: 'Stunzstr. 19 München',
+                                value: 'A',
                             }, {
                                 label: 'Work',
-                                value: 'Arcisstr. 3 München',
+                                value: 'B',
                             }]}
                         />
                     </div>
