@@ -14,7 +14,7 @@ export class MealFilter extends React.Component
         return (
             <DataTable>
                 <TableBody>
-                    {this.props.filters.map((filter, i) => <TableRow><TableColumn> {filter} </TableColumn></TableRow>)}
+                    {this.props.filters.map((filter, i) => <TableRow key={i}><TableColumn> {filter} </TableColumn></TableRow>)}
                 </TableBody>
             </DataTable>
         );
