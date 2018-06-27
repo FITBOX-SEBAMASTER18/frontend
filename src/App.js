@@ -5,6 +5,7 @@ import { MainView } from './views/MainView';
 import { LoginView } from './views/LoginView';
 import { MealListView } from './views/MealListView';
 import { RegisterView } from './views/RegisterView';
+import { MealView } from './views/MealView';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ export default class App extends React.Component {
             { component: MainView , path: '/', exact: true},
             { component: LoginView, path: '/login'},
             { component: RegisterView, path: '/register'},
-            { component: MealListView, path: '/meals'}
+            { component: MealListView, path: '/meals'},
+            { component: MealView, path: '/meal'}
         ]
     };
     document.title = this.state.title;
