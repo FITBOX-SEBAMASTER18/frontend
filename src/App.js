@@ -21,7 +21,7 @@ export default class App extends React.Component {
             { component: LoginView, path: '/login'},
             { component: RegisterView, path: '/register'},
             { component: MealListView, path: '/meals'},
-            { component: MealView, path: '/meal'}
+            { component: MealView, path: '/meal'},
             { component: AboutView, path: '/about'},
             { component: FAQView, path: '/faq'},
             { component: AccountView, path: '/account'}
