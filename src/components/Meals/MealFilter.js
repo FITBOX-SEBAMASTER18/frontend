@@ -12,7 +12,7 @@ export class MealFilter extends React.Component
 
     render() {
         return (
-            <DataTable>
+            <DataTable baseId="meal">
                 <TableBody>
                     {this.props.filters.map((filter, i) => <TableRow key={i}><TableColumn> {filter} </TableColumn></TableRow>)}
                 </TableBody>
