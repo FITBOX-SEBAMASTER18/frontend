@@ -14,7 +14,7 @@ class HeaderTabs extends React.Component {
 		      <Tabs
       			tabId="header-tabs"
 	          onTabChange={this.handleTabChange}
-	          style={ {margin: "auto"}}
+	          style={ {marginTop: "14px"}}
 		      >
 		          	<Tab label="Meals" onClick={() => this.props.history.push('/meals')}>
 		            </Tab>
