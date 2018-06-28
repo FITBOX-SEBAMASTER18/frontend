@@ -26,7 +26,7 @@ class MealListItem extends React.Component {
                         <Cell align={'middle'} phoneSize={1} tabletSize={2} desktopSize={4}><Chip label={"Vegan"}/></Cell>
                         <Cell size={12}><label><b>{this.props.meal}</b></label></Cell>
                         <Grid>
-                            <Cell phoneSize={3} tableSize={6} desktopSize={8}>
+                            <Cell phoneSize={3} tabletSize={6} desktopSize={8}>
                                 <Grid>
                                     <Cell phoneSize={2} tabletSize={4} desktopSize={6}><label><b>Calories:</b></label></Cell>
                                     <Cell phoneSize={2} tabletSize={4} desktopSize={6}><label><b>123</b></label></Cell>
@@ -38,7 +38,7 @@ class MealListItem extends React.Component {
                                     <Cell phoneSize={2} tabletSize={4} desktopSize={6}><label><b>123</b></label></Cell>
                                 </Grid>
                             </Cell>
-                            <Cell align={'bottom'} phoneSize={1} tableSize={2} desktopSize={4}>
+                            <Cell align={'bottom'} phoneSize={1} tabletSize={2} desktopSize={4}>
                                 <Button icon primary swapTheming onClick={() => console.log("ADD CART")}>add_shopping_cart</Button>
                             </Cell>
                         </Grid>
