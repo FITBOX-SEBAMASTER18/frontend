@@ -4,11 +4,8 @@ import image1 from './home-meal.jpg';
 
 export default () => {
     return (
-	    	<Media aspectRatio="16-9">
-	    		<img src={image1}/>
-	    			<MediaOverlay>
-						<CardTitle title="Wow. Amazing." />
-					</MediaOverlay>
-	    	</Media>
+    	<Grid size={12}  className="home-image">
+	  		<img src={image1}/>
+	  	</Grid>
     )
 }

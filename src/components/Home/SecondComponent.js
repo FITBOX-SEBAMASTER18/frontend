@@ -1,20 +1,35 @@
 import React from "react";
 import { Grid, Cell, FontIcon } from 'react-md';
+import choose from './choose.png';
+import cook from './cook.png';
+import deliver from './delivery.png';
 
 export default () => {
     return (
-    	<Grid>
+    	<Grid className="second-component">
     		<Cell size={4} phoneSize={12}>
-    			<div>
-			    	<FontIcon >fastfood</FontIcon>
-			    	<p> Choose meal </p>
-			    </div>
+    			<Grid>
+			    	<img src={choose} className="image"/>
+			    </Grid>
+                <Grid className="description">
+                    <p>How it works</p>
+                </Grid>
     		</Cell>
     		<Cell size={4} phoneSize={12}>
-    			It works
+                <Grid>            
+    			  <img src={cook} className="image"/>
+                </Grid>
+                <Grid className="description">
+                    <p> It works </p>
+                </Grid>
     		</Cell>
     		<Cell size={4} phoneSize={12}>
-    			Like this
+                <Grid>            
+                  <img src={deliver} className="image"/>
+                </Grid>
+                <Grid className="description">
+                    <p> Like this </p>
+                </Grid>
     		</Cell>
     	</Grid>
     )
