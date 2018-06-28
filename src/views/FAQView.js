@@ -12,7 +12,7 @@ class FAQView extends React.Component {
 	  return (
 	      <Page activeTab={2}>
 	      	<p><b>What is FitBox? </b></p>
-					<p>FitBox is a meal delivery service for people who want to live a healthy life style without thinking about what to cook. We deliver ready to cook meals with an ingredient box right to your home.</p>
+					<p>FitBox is a meal delivery service for people who want to live a healthy life style without thinking about what to cook. We deliver cooked meals right to your home that you can instantly eat or put into the freezer.</p>
 					<p><b>How often do I need to order?</b></p>
 					<p>Orders are weekly as our menus get updated weekly.</p>
 					<p><b>Who can I consult to about my eating schedule?</b></p>
