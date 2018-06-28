@@ -10,6 +10,7 @@ import AboutView from './views/AboutView';
 import AccountView from './views/AccountView';
 import FAQView from './views/FAQView';
 import { OrderView } from './views/OrderView'
+import { Chat } from './components/Chat';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -41,7 +42,10 @@ export default class App extends React.Component {
         <div>
             <Router>
                 <Switch>
-                    {this.state.routes.map((route, i) => (<Route key={i} {...route}/>) )}
+                    <div>
+                        {this.state.routes.map((route, i) => (<Route key={i} {...route}/>) )}
+                        <Chat/>
+                    </div>
                 </Switch>
             </Router>
         </div>
