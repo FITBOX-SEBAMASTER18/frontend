@@ -1,0 +1,84 @@
+.home-image {
+	padding: 0;
+	position: relative;
+}
+.home-image .cover-img {
+	width: 100%;
+	height: 100%;
+}
+
+.home-image-box {
+	width: 40%;
+	height: 70%;
+	position: absolute;
+	top: 15%;
+	left: 5%;
+	background-color:rgba(255, 255, 255, 0.85);
+}
+
+.home-image-box img {
+	width: 60%;
+	margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.home-image-box p{
+	text-align: center;
+	font-family: 'Encode Sans Condensed', sans-serif;
+	font-weight: 200;	
+	font-size: 1.5vw;
+	margin-bottom: 1vw;
+}
+
+.home-image-box h2{
+	text-align: center;
+	font-family: 'Encode Sans Condensed', sans-serif;
+	font-size: 2.3vw;
+	margin-bottom: 1vw;
+}
+
+.motto {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: #ef6c00;
+	font-size: 2.2vw;
+	font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.bullet::after{
+	content: "•";
+	padding: 10px;
+}
+
+.second-component .image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 180px;
+	height: 180px;
+}
+
+.second-component .description p{
+	margin: auto;
+}
+
+.second-component .describing-icons {
+	margin: auto;
+}
+
+.description-title h1 {
+	text-align: center;
+	color: #ef6c00;
+	padding-top: 2%;
+	font-family: 'Encode Sans Condensed', sans-serif;
+	font-weight: 200;	
+}
+
+.description p {
+	font-size: 15pt;
+  text-align: center;
+  font-weight: 200;
+  line-height: 1.5em;
+}
