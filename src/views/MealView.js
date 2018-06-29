@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../components/Page';
-import { CardTitle, Media, MediaOverlay, Grid, Cell } from 'react-md';
+import { CardTitle, Media, MediaOverlay, Grid, Cell, Button } from 'react-md';
 
 export class MealView extends React.Component {
 
@@ -26,14 +26,12 @@ export class MealView extends React.Component {
                     <div className="md-cell md-cell--6">
                         <div className="md-grid">
                             <div className="md-cell md-cell--6" >
-                                <p>
+                                <p style={{verticalAlign: 'middle'}}>
                                     MEAL NAME
                                 </p>
                             </div>
                             <div className="md-cell md-cell--6" align="right">
-                                <p>
-                                    ADD TO SHOPPING CART
-                                </p>
+                                <Button icon primary >add_shopping_cart</Button>
                             </div>
                         </div>
                         <div className="md-grid">
