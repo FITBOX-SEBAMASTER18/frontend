@@ -4,6 +4,7 @@ import React from 'react';
 import { Toolbar, Button, Tabs, Tab, TabsContainer } from 'react-md';
 import { withRouter } from 'react-router-dom'
 import HeaderTabs from './HeaderTabs'
+import logo from '../../public/FitBox.png'
 
 class Header extends React.Component {
 
