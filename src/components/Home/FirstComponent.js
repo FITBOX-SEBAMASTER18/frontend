@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Cell, Media, CardTitle, MediaOverlay} from 'react-md';
+import { Grid, Cell, Media, CardTitle, MediaOverlay, Button} from 'react-md';
 import image1 from './home-meal.jpg';
 import logo from '../../../public/FitBox-Orange.png'
 
@@ -8,8 +8,23 @@ export default () => {
     	<Grid size={12}  className="home-image">
     		<div className="home-image-box">
     			<img src={logo}/>
-    			<h2> What is FitBox </h2>
-    			<p> Have your meals delivered! </p>
+    			<h2> Have healthy meals delivered to your door</h2>
+    			<p> FitBox brings you heat-and-eat meal boxes with best ingredients.</p>
+    			<div className="motto">
+    				Healthy
+    				<span className="bullet"></span>
+    				Convenient
+						<span className="bullet"></span>    				
+    				Delicious
+    			</div>
+    			<Grid>
+	    			<Cell size={6}>
+							<Button style={{ float: "right"}} flat primary swapTheming> Get Started </Button>
+						</Cell>
+	    			<Cell size={6}>					
+							<Button flat primary swapTheming> Login </Button>
+						</Cell> 
+					</Grid> 
     		</div>
 	  		<img src={image1} className="cover-img"/>
 	  	</Grid>

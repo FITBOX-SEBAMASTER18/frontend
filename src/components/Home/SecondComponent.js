@@ -17,7 +17,7 @@ export default () => {
         			    	<img src={choose} className="image"/>
         			    </Grid>
                         <Grid className="description">
-                            <p> Browse and order your meals</p>
+                            <p> <b>Browse and order your meals </b> <br/>from our weekly menu</p>
                         </Grid>
             		</Cell>
             		<Cell size={4} phoneSize={12}>
@@ -25,7 +25,7 @@ export default () => {
             			  <img src={cook} className="image"/>
                         </Grid>
                         <Grid className="description">
-                            <p> We will cook the meals for you</p>
+                            <p> <b> We will cook the meals for you </b> <br/> with best ingredients and top chefs </p>
                         </Grid>
             		</Cell>
             		<Cell size={4} phoneSize={12}>
@@ -33,7 +33,7 @@ export default () => {
                           <img src={deliver} className="image"/>
                         </Grid>
                         <Grid className="description">
-                            <p> Have your meals delivered freshly in batches of 3-4 days</p>
+                            <p> <b> Have your meals delivered </b> <br/> to your door freshly in batches of 3-4 days</p>
                         </Grid>
             		</Cell>
                 </Grid>
