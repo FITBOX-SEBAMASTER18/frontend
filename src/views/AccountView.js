@@ -11,8 +11,13 @@ class AccountView extends React.Component {
 	  super(props);
 		this.state = {
 			title : 'FitBox - My Account',
-         	indexOfClickedItem: -1
-        };
+					 indexOfClickedItem: -1,
+					 	addresses: [
+            {label: "Ev", address: "Ankara", _id:"0"},
+            {label: "CHP Genel Merkezi", address: "Ankara", _id:"1"}
+        ]
+				};
+	
 		document.title = this.state.title;
     	this.onListItemClicked = this.onListItemClicked.bind(this);
     	this.mainContent = <MyProfile />;  //this
@@ -27,7 +32,7 @@ class AccountView extends React.Component {
 	  if(index == 0){
 		data = <MyProfile />
 	  }else{
-		data=<MyAdress />
+		data=<MyAdress addresses={this.state.addresses}/>
 	  }
 
 	  this.mainContent = <p>{data}</p>;
@@ -38,10 +43,12 @@ class AccountView extends React.Component {
 	  return (
 		<Page>
 			<Grid>
-      			<Cell size={2}>
+      			<Cell size={4}>
 					<p> Hello Muharrem </p>
+					<media aspectRatio={'1-1'}>
 					<img src="https://pbs.twimg.com/profile_images/996353371543138304/zo1w3vGs_400x400.jpg" 
 					style={{width: 300, height: 300}}/>
+					</media>
 					<List >
       					<ListItem primaryText="My Profile" onClick= {() => this.onListItemClicked(0)}/>
       					<ListItem primaryText="My Adresses" onClick={() => this.onListItemClicked(1)}/>
