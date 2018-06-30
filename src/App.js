@@ -12,6 +12,8 @@ import FAQView from './views/FAQView';
 import { OrderView } from './views/OrderView';
 import CartView from './views/CartView';
 import { Chat } from './components/Chat';
+import Favicon from 'react-favicon';
+import favicon from '../public/favicon.ico';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,6 +44,7 @@ export default class App extends React.Component {
   render() {
     return(
         <div>
+            <Favicon url={favicon}/>
             <Router>
                 <Switch>
                     <div>
