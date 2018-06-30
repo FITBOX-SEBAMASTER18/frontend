@@ -3,16 +3,17 @@
 import React from 'react';
 import MealList from '../components/Meals/MealList';
 import MealService from '../services/MealService';
+import MenuService from '../services/MenuService';
 
 export class MealListView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            loading: true,
-            title: 'FitBox - Meals',
             filters: [],
-            meals: []
+            meals: [],
+            startDate: undefined,
+            endDate: undefined
         };
     }
 
@@ -20,33 +21,33 @@ export class MealListView extends React.Component {
         this.setState({
             loading: true
         })
-        MealService.getFilters().then(data => {
+        MealService.getFilters().then(response => {
             this.setState({
-                filters: data
+                filters: response
             })
-            return MealService.getMeals()
-        }).then( data => {
-            this.setState({
-                meals: data,
-                loading: false
-            })            
+            return MenuService.getMenu()
+        }).then( response => {
+            console.log(response)
+            if (response.success) { 
+                this.setState({
+                    startDate: new Date(response.data.startDate),
+                    endDate: new Date(response.data.endDate),
+                    meals: response.data.meals,
+                    loading: false
+                })            
+            }
         }).catch(e => {
             console.log(e)
         })
     }
 
-    componentDidMount(){
-        document.title = this.state.title;
-    }
-
     handleMealClick(meal){
-        console.log(meal);
-        this.props.history.push("/meal")
+        this.props.history.push("/meal/"+ meal._id)
     }
 
     render() {
         return (
-            <MealList filters = {this.state.filters} meals = {this.state.meals} handleMeal={(meal) => this.handleMealClick(meal)}/>
+            <MealList filters = {this.state.filters} meals = {this.state.meals} handleMeal={(meal) => this.handleMealClick(meal)} startDate={this.state.startDate} endDate={this.state.endDate}/>
         );
     }
 }
