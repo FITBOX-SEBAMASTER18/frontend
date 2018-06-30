@@ -14,8 +14,7 @@ export class MealFilter extends React.Component
         return (
             <DataTable 
                 baseId='filter' 
-                onRowToggle = {(id, checked) => this.props.filters[id-1].isSelected = checked} 
-                defaultSelectedRows = {this.props.filters.map(filter => filter.isSelected)}>
+                onRowToggle = {(i, checked) => this.props.handleFilter(this.props.filters[i], checked)}>
                 <TableBody>
                     {this.props.filters.map((filter, i) => <TableRow key={i}><TableColumn> {filter.text} </TableColumn></TableRow>)}
                 </TableBody>
