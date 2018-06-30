@@ -81,7 +81,7 @@ class MyProfile extends React.Component {
                                 onChange={this.handleChangeLastname}
                                 errorText="Lastname is required"/>
                             <Button id="submit" type="submit"
-                                disabled={this.state.username == undefined || this.state.username == '' || this.state.password == undefined || this.state.password == '' || this.state.firstname == undefined || this.state.firstname == '' || this.state.lastname == undefined || this.state.lastname == '' ? true : false}
+                                disabled={this.state.username == undefined || this.state.username == '' || this.state.firstname == undefined || this.state.firstname == '' || this.state.lastname == undefined || this.state.lastname == '' ? true : false}
                                 raised primary className="md-row md-full-width">Update
                             </Button>
                             <AlertMessage className="md-row md-full-width" >{this.props.error ? `${this.props.error}` : ''}</AlertMessage>
