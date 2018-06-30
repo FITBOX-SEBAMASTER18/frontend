@@ -2,6 +2,7 @@ import React from 'react';
 import Page from '../components/Page';
 import {Grid, Cell} from 'react-md';
 import CartMealList from '../components/Cart/CartMealList';
+import AddressCell from '../components/Cart/AddressCell';
 import { withRouter } from 'react-router-dom';
 
 
@@ -18,7 +19,7 @@ class CartView extends React.Component {
               <CartMealList></CartMealList>
 	          </Cell>
 	          <Cell size={3}>
-	          	Adress Cell
+	          	<AddressCell></AddressCell>
 	          </Cell>
           </Grid>
 	      </Page>
