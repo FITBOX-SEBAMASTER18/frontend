@@ -1,3 +1,5 @@
+@import '../../index';
+
 .home-image {
 	padding: 0;
 	position: relative;
@@ -13,7 +15,7 @@
 	position: absolute;
 	top: 15%;
 	left: 5%;
-	background-color:rgba(255, 255, 255, 0.85);
+	background-color:rgba(255, 255, 255, 0.9);
 }
 
 .home-image-box img {
@@ -42,7 +44,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	color: #ef6c00;
+	color: $md-primary-color;
 	font-size: 2.2vw;
 	font-family: 'Encode Sans Condensed', sans-serif;
 }

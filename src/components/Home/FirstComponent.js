@@ -8,7 +8,7 @@ export default () => {
     	<Grid size={12}  className="home-image">
     		<div className="home-image-box">
     			<img src={logo}/>
-    			<h2> Have healthy meals delivered to your door</h2>
+    			<h2> Healthy meals delivered to your door</h2>
     			<p> FitBox brings you heat-and-eat meal boxes with best ingredients.</p>
     			<div className="motto">
     				Healthy
@@ -19,10 +19,10 @@ export default () => {
     			</div>
     			<Grid>
 	    			<Cell size={6}>
-							<Button style={{ float: "right"}} flat primary swapTheming> Get Started </Button>
+							<Button style={{ float: "right"}} flat secondary swapTheming> Get Started </Button>
 						</Cell>
 	    			<Cell size={6}>					
-							<Button flat primary swapTheming> Login </Button>
+							<Button flat secondary swapTheming> Login </Button>
 						</Cell> 
 					</Grid> 
     		</div>
