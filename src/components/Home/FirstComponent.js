@@ -21,11 +21,11 @@ class FirstComponent extends React.Component {
         			</div>
         			<Grid>
     	    			<Cell size={6}>
-    							<Button onClick={() => this.props.history.push('/register')} 
+    							<Button raised onClick={() => this.props.history.push('/register')} 
                                 style={{ float: "right"}} flat secondary swapTheming> Get Started </Button>
     						</Cell>
     	    			<Cell size={6}>					
-    							<Button onClick={() => this.props.history.push('/login')}  
+    							<Button raised onClick={() => this.props.history.push('/login')}  
                                 flat secondary swapTheming> Login </Button>
     						</Cell> 
     					</Grid> 

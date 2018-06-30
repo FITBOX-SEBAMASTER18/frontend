@@ -1,6 +1,7 @@
 "use strict";
 
 import React from 'react';
+import UserService from "../services/UserService";
 import { Toolbar, Button, Tabs, Tab, TabsContainer } from 'react-md';
 import { withRouter } from 'react-router-dom'
 import HeaderTabs from './HeaderTabs'
@@ -27,7 +28,9 @@ class Header extends React.Component {
                     <HeaderTabs activeTab={this.props.activeTab}></HeaderTabs>
                 }
                 actions={
-                    <Button flat primary swapTheming onClick={() => this.props.history.push('/login')} >Login / Shopping Cart</Button>
+                    (UserService.isAuthenticated())
+                    ? <Button className="shopping-cart" floating secondary onClick={() => this.props.history.push('/cart')}>shopping_cart</Button>
+                    : <Button className="header-login" raised secondary onClick={() => this.props.history.push('/login')} >Login</Button>                
                 }
             >
             </Toolbar>
