@@ -16,7 +16,7 @@ class Header extends React.Component {
             <Toolbar
                 colored
                 nav={<Button onClick={() => this.props.history.push('/')} icon>home</Button>}
-                title={this.props.title}
+                title="FitBox"
                 children={
                     <HeaderTabs activeTab={this.props.activeTab}></HeaderTabs>
                 }

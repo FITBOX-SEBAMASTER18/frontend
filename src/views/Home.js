@@ -8,6 +8,7 @@ import ThirdComponent from "../components/Home/ThirdComponent";
 import FourthComponent from "../components/Home/FourthComponent";
 import FifthComponent from "../components/Home/FifthComponent";
 import ReactPageScroller from "react-page-scroller";
+import '../components/Home/home.css'
 
 export class Home extends React.Component {
 

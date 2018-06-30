@@ -1,5 +1,21 @@
+* {
+ box-sizing: border-box;
+}
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+html,
 body {
 	margin: 0px;
 	padding: 0;
-	font-family: sans-serif;	
+ 	height: 100%;
+ 	position: relative;
+}
+
+.page {
+ min-height: 60vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
 }

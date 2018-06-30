@@ -8,7 +8,7 @@ import WebFontLoader from 'webfontloader';
 
 WebFontLoader.load({
     google: {
-        families: ['Roboto:300,400,500,700', 'Material Icons'],
+        families: ['Roboto:300,400,500,700', 'Material Icons', 'Encode Sans Condensed:200,300,400,500,600,700'],
     },
 });
 
