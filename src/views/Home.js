@@ -8,7 +8,7 @@ import ThirdComponent from "../components/Home/ThirdComponent";
 import FourthComponent from "../components/Home/FourthComponent";
 import FifthComponent from "../components/Home/FifthComponent";
 import ReactPageScroller from "react-page-scroller";
-import '../components/Home/home.css'
+import '../components/Home/home.scss'
 
 export class Home extends React.Component {
 
@@ -30,7 +30,7 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <Page>
+            <Page activeTab={0}>
                 <FirstComponent/>
                 <SecondComponent/>
                 <ThirdComponent/>

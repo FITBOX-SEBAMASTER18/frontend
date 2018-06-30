@@ -26,14 +26,16 @@ class HeaderTabs extends React.Component {
           	activeTabIndex={this.props.activeTab}
           	onTabChange={this.handleTabChange}
 		      >
-		          	<Tab label="Meals" onClick={() => this.props.history.push('/meals')}>
-		            </Tab>
-		            <Tab label="About" onClick={() => this.props.history.push('/about')}>
-		            </Tab>		            
-		            <Tab label="F.A.Q." onClick={() => this.props.history.push('/faq')}>
-		            </Tab>
-		            <Tab label="My Account" onClick={() => this.props.history.push('/account')}>
-		            </Tab>
+		      	<Tab label="Home" onClick={() => this.props.history.push('/')}>
+            </Tab>
+	        	<Tab label="Meals" onClick={() => this.props.history.push('/meals')}>
+	          </Tab>
+	          <Tab label="About" onClick={() => this.props.history.push('/about')}>
+	          </Tab>		            
+	          <Tab label="F.A.Q." onClick={() => this.props.history.push('/faq')}>
+	          </Tab>
+	          <Tab label="My Account" onClick={() => this.props.history.push('/account')}>
+	          </Tab>
 		      </Tabs>
 		  </div>
 	  );

@@ -1,3 +1,7 @@
+@import '~react-md/src/scss/react-md';
+
+$md-primary-color: $md-orange-500;
+$md-secondary-color: $md-teal-a-400;
 * {
  box-sizing: border-box;
 }
@@ -19,3 +23,5 @@ body {
  display: block;
  position: relative;
 }
+
+@include react-md-everything;

@@ -4,6 +4,9 @@ import React from 'react';
 import { Toolbar, Button, Tabs, Tab, TabsContainer } from 'react-md';
 import { withRouter } from 'react-router-dom'
 import HeaderTabs from './HeaderTabs'
+import logo from '../../public/FitBox.png'
+import {Link} from 'react-router-dom'
+import './header.scss'
 
 class Header extends React.Component {
 
@@ -15,8 +18,11 @@ class Header extends React.Component {
         return (
             <Toolbar
                 colored
-                nav={<Button onClick={() => this.props.history.push('/')} icon>home</Button>}
-                title="FitBox"
+                nav={<div className="logo">
+                        <Link to="/">
+                            <img src={logo}/>
+                        </Link>
+                    </div>}
                 children={
                     <HeaderTabs activeTab={this.props.activeTab}></HeaderTabs>
                 }

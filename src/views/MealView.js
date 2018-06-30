@@ -13,7 +13,7 @@ export class MealView extends React.Component {
 
     render() {
         return (
-            <Page activeTab={0}>
+            <Page activeTab={1}>
                 <div className="md-grid">
                     <div className="md-cell md-cell--6">
                         <Media aspectRatio="4-3">

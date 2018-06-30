@@ -10,7 +10,7 @@ class AboutView extends React.Component {
 
 	render() {	
 	  return (
-	      <Page activeTab={1}>
+	      <Page activeTab={2}>
 	      	<p> FitBox is a meal delivery service for people who want to live a healthy life style without thinking about what to cook.
 						With the variety of items we have on our menu, we offer you a way to save time and still stay healthy!
 						Just pick your meals from our menu for your weekly order, get your meals delivered to your address cooked and ready to eat.
