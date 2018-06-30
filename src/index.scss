@@ -29,4 +29,7 @@ $md-tab-desktop-font-size: 15px;
 .md-tab--active .md-tab-label {
 	font-size: 18px;
 }
+.md-grid .home-image {
+	padding:0;
+}
 @include react-md-everything;

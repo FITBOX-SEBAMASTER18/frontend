@@ -1,9 +1,11 @@
-@import '../index';
+@import '~react-md/src/scss/react-md';
+
+$md-primary-color: $md-orange-500;
+$md-secondary-color: $md-teal-a-700;
 
 .conversation-container .header {
 	background-color: $md-secondary-color;
 	font-family: 'Encode Sans', sans-serif;
-
 }
 .conversation-container .header .title{
 	color: white;
