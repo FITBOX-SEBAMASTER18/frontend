@@ -41,7 +41,7 @@ export default class MealService {
 
     static getFilters() {
         return new Promise((resolve, reject) => {
-            var filters = [{text:'Ben', isSelected: true}, {text:'Sen', isSelected: false}, {text:'O', isSelected: true}];
+            var filters = [{text:'Ben', isSelected: true}, {text:'Sen', isSelected: false}, {text:'O', isSelected: true}, {text:'O', isSelected: true}, {text:'O', isSelected: true}, {text:'O', isSelected: true}, {text:'O', isSelected: true}];
             resolve(filters);
         }) 
         // return new Promise((resolve, reject) => {

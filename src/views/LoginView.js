@@ -2,30 +2,31 @@
 
 import React from 'react';
 import Login from '../components/Login';
-
+import UserService from '../services/UserService'
 
 export class LoginView extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            title : 'FitBox - Login'
-        };
-        document.title = this.state.title;
-    }
-
-    componentDidMount(){
-        document.title = this.state.title;
+        this.state = {};
     }
 
     login(user) {
-        console.log(user);
+        UserService.login(user).then( response => {
+            if (response.success){
+                UserService.setCurrentUser(response.data.user);
+                this.props.history.push("/");
+            }
+        }).catch( e => {
+            this.setState({
+                error: e
+            })
+        });
     }
 
     render() {
         return (
-          <Login onSubmit={(user) => this.login(user)} error={this.state.error}>
-          </Login>
+          <Login onSubmit={(user) => this.login(user)} error={this.state.error} />
         );
     }
 }
