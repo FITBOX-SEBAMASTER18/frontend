@@ -21,7 +21,16 @@ export default class MealService {
 
     static getFilters() {
         return new Promise((resolve, reject) => {
-            var filters = ["low-calories","low-carb","","","","","",""];
+            var filters =   [{id: "low-calories", text: "Low Calories"},
+                            {id: "low-carb", text: "Low Carbonhydrates"},
+                            {id: "high-protein", text: "High Protein"},
+                            {id: "gluten-free", text: "Gluten Free"},
+                            {id: "soy-free", text: "Soy Free"},
+                            {id: "dairy-free", text: "Dairy Free"},
+                            {id: "spicy", text: "Spicy"},
+                            {id: "vegetarian", text: "Vegetarian"},
+                            {id: "paleo-friendly", text: "Paleo Friendly"}
+                        ];
             resolve(filters);
         }) 
     }

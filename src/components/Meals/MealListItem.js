@@ -15,8 +15,19 @@ class MealListItem extends React.Component {
     }
 
     render() {
+        let isHidden = false;
+        if (this.props.checkedFilters != undefined) {
+            // console.log(this.props.meal.filters);
+            // console.log(this.props.checkedFilters);
+            this.props.checkedFilters.forEach(checkedFilter => {
+                // console.log(checkedFilter)
+                if (!this.props.meal.filters.includes(checkedFilter.id)) {
+                    isHidden = true;
+                }
+            })
+        }
         return (    
-            <Cell phoneSize={6} tabletSize={4} desktopSize={4}>
+            <Cell phoneHidden={isHidden} tabletHidden={isHidden} desktopHidden={isHidden} phoneSize={6} tabletSize={4} desktopSize={4}>
                 <Paper onClick={() => this.handleMealClick(this.props.meal)}>
                     <Media aspectRatio="16-9">
                         <img src={this.props.meal.image}/>
