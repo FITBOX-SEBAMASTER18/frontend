@@ -24,7 +24,7 @@ class HeaderTabs extends React.Component {
 		      <Tabs
       			tabId="header-tabs"
 	          onTabChange={this.handleTabChange}
-	          style={ {"marginTop": "14px"}}
+	          style={ {"marginTop": "16px"}}
           	activeTabIndex={this.props.activeTab}
           	onTabChange={this.handleTabChange}
 		      >

@@ -1,4 +1,5 @@
 @import '~react-md/src/scss/react-md';
+$md-tab-indicator-height: 3px !important;
 
 $md-primary-color: $md-orange-500;
 $md-secondary-color: $md-teal-a-700;
@@ -32,4 +33,5 @@ $md-tab-desktop-font-size: 15px;
 .md-grid .home-image {
 	padding:0;
 }
+
 @include react-md-everything;
