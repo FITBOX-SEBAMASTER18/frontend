@@ -30,7 +30,7 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <Page>
+            <Page activeTab={0}>
                 <FirstComponent/>
                 <SecondComponent/>
                 <ThirdComponent/>

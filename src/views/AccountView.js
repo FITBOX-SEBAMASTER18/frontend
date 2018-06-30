@@ -10,7 +10,7 @@ class AccountView extends React.Component {
 
 	render() {
 	  return (
-	      <Page activeTab={3}>
+	      <Page activeTab={4}>
 	      	<p> Hello AccountView </p>
 	      </Page>
 	  );

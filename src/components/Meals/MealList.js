@@ -22,7 +22,7 @@ class MealList extends React.Component {
 
     render() {
         return (  
-            <Page isLoading = {this.props.isLoading}>
+            <Page activeTab={1} >
                 <Grid>
                 <Cell phoneHidden={true} tabletSize={2} desktopSize={3}>
                     <MealFilter filters={this.props.filters}/>
