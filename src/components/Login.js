@@ -14,11 +14,11 @@ class Login extends React.Component {
         super(props);
 
         this.state = {
-            username : '',
+            email : '',
             password : ''
         };
 
-        this.handleChangeUsername = this.handleChangeUsername.bind(this);
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,15 +28,15 @@ class Login extends React.Component {
         event.preventDefault();
 
         let user = {
-            username: this.state.username,
+            email: this.state.email,
             password: this.state.password
         };
 
         this.props.onSubmit(user);
     }
 
-    handleChangeUsername(value) {
-        this.setState(Object.assign({}, this.state, {username: value}));
+    handleChangeEmail(value) {
+        this.setState(Object.assign({}, this.state, {email: value}));
     }
 
     handleChangePassword(value) {
@@ -50,13 +50,13 @@ class Login extends React.Component {
                     <div className = "md-cell--center md-cell--6">
                         <div className ="md-grid">
                             <TextField
-                                label = "Email/Username"
-                                id = "UsernameField"
+                                label = "Email"
+                                id = "EmailField"
                                 type="text"
                                 className="md-row md-full-width"
                                 required={true}
-                                value={this.state.username}
-                                onChange={this.handleChangeUsername}
+                                value={this.state.email}
+                                onChange={this.handleChangeEmail}
                                 errorText="Login is required"/>
                             <TextField
                                 label="Password"
@@ -68,7 +68,7 @@ class Login extends React.Component {
                                 onChange={this.handleChangePassword}
                                 errorText="Password is required"/>
                             <Button id="submit" type="submit"
-                                disabled={this.state.username == undefined || this.state.username == '' || this.state.password == undefined || this.state.password == '' ? true : false}
+                                disabled={this.state.email == undefined || this.state.email == '' || this.state.password == undefined || this.state.password == '' ? true : false}
                                 raised primary className="md-row md-full-width">Login
                             </Button>
                             <Link to={'/register'} className="md-row md-full-width">Not registered yet?</Link>

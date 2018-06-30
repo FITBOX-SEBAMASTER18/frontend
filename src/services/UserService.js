@@ -7,15 +7,15 @@ export default class UserService {
     constructor() {
     }
 
-    static baseURL() {return "http://localhost:3000/auth"; }
+    static baseURL() {return "http://131.159.199.21:6678/user"; }
 
-    static register(user, pass, firstname, lastname) {
+    static register(user) {
         return new Promise((resolve, reject) => {
             HttpService.post(`${UserService.baseURL()}/register`, {
-                username: user,
-                password: pass,
-                firstname: firstname,
-                lastname: lastname
+                email: user.email,
+                password: user.password,
+                name: user.name,
+                surname: user.surname
             }, function(data) {
                 resolve(data);
             }, function(textStatus) {
@@ -24,11 +24,11 @@ export default class UserService {
         });
     }
 
-    static login(user, pass) {
+    static login(user) {
         return new Promise((resolve, reject) => {
             HttpService.post(`${UserService.baseURL()}/login`, {
-                username: user,
-                password: pass
+                email: user.email,
+                password: user.password
             }, function(data) {
                 resolve(data);
             }, function(textStatus) {
@@ -41,16 +41,12 @@ export default class UserService {
         window.localStorage.removeItem('jwtToken');
     }
 
-    static getCurrentUser() {
-        let token = window.localStorage['jwtToken'];
-        if (!token) return {};
+    static setCurrentUser(user){
+        window.localStorage['user'] = JSON.stringify(user);
+    }
 
-        let base64Url = token.split('.')[1];
-        let base64 = base64Url.replace('-', '+').replace('_', '/');
-        return {
-            id : JSON.parse(window.atob(base64)).id,
-            username: JSON.parse(window.atob(base64)).username
-        };
+    static getCurrentUser() {
+        return JSON.parse(window.localStorage['user']);
     }
 
     static isAuthenticated() {

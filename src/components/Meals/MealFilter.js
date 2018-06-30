@@ -16,13 +16,6 @@ export class MealFilter extends React.Component
                 baseId='filter' 
                 onRowToggle = {(id, checked) => this.props.filters[id-1].isSelected = checked} 
                 defaultSelectedRows = {this.props.filters.map(filter => filter.isSelected)}>
-                <TableHeader>
-                    <TableRow selectable={false}>
-                        <TableColumn>
-                            <h4>Filter</h4>
-                        </TableColumn>
-                    </TableRow>
-                </TableHeader>
                 <TableBody>
                     {this.props.filters.map((filter, i) => <TableRow key={i}><TableColumn> {filter.text} </TableColumn></TableRow>)}
                 </TableBody>

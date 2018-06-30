@@ -14,16 +14,16 @@ class Register extends React.Component {
         super(props);
 
         this.state = {
-            username : '',
+            email : '',
             password : '',
-            firstname : '',
-            lastname : ''
+            name : '',
+            surname : ''
         };
 
-        this.handleChangeUsername = this.handleChangeUsername.bind(this);
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
-        this.handleChangeFirstname = this.handleChangeFirstname.bind(this);
-        this.handleChangeLastname = this.handleChangeLastname.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeSurname = this.handleChangeSurname.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -32,29 +32,29 @@ class Register extends React.Component {
         event.preventDefault();
 
         let user = {
-            username: this.state.username,
+            email: this.state.email,
             password: this.state.password,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname
+            name: this.state.name,
+            surname: this.state.surname
         };
 
         this.props.onSubmit(user);
     }
 
-    handleChangeUsername(value) {
-        this.setState(Object.assign({}, this.state, {username: value}));
+    handleChangeEmail(value) {
+        this.setState(Object.assign({}, this.state, {email: value}));
     }
 
     handleChangePassword(value) {
         this.setState(Object.assign({}, this.state, {password: value}));
     }
 
-    handleChangeFirstname(value) {
-        this.setState(Object.assign({}, this.state, {firstname: value}));
+    handleChangeName(value) {
+        this.setState(Object.assign({}, this.state, {name: value}));
     }
 
-    handleChangeLastname(value) {
-        this.setState(Object.assign({}, this.state, {lastname: value}));
+    handleChangeSurname(value) {
+        this.setState(Object.assign({}, this.state, {surname: value}));
     }
 
     render() {
@@ -64,13 +64,13 @@ class Register extends React.Component {
                     <div className = "md-cell--center md-cell--6">
                         <div className ="md-grid">
                             <TextField
-                                label = "Email/Username"
-                                id = "UsernameField"
+                                label = "Email"
+                                id = "EmailField"
                                 type="text"
                                 className="md-row md-full-width"
                                 required={true}
-                                value={this.state.username}
-                                onChange={this.handleChangeUsername}
+                                value={this.state.email}
+                                onChange={this.handleChangeEmail}
                                 errorText="Login is required"/>
                             <TextField
                                 label="Password"
@@ -87,8 +87,8 @@ class Register extends React.Component {
                                 type="text"
                                 className="md-row md-full-width"
                                 required={true}
-                                value={this.state.firstname}
-                                onChange={this.handleChangeFirstname}
+                                value={this.state.name}
+                                onChange={this.handleChangeName}
                                 errorText="Firstname is required"/>
                             <TextField
                                 label="Lastname"
@@ -96,11 +96,11 @@ class Register extends React.Component {
                                 type="text"
                                 className="md-row md-full-width"
                                 required={true}
-                                value={this.state.lastname}
-                                onChange={this.handleChangeLastname}
+                                value={this.state.surname}
+                                onChange={this.handleChangeSurname}
                                 errorText="Lastname is required"/>
                             <Button id="submit" type="submit"
-                                disabled={this.state.username == undefined || this.state.username == '' || this.state.password == undefined || this.state.password == '' || this.state.firstname == undefined || this.state.firstname == '' || this.state.lastname == undefined || this.state.lastname == '' ? true : false}
+                                disabled={this.state.email == undefined || this.state.email == '' || this.state.password == undefined || this.state.password == '' || this.state.name == undefined || this.state.name == '' || this.state.surname == undefined || this.state.surname == '' ? true : false}
                                 raised primary className="md-row md-full-width">Register
                             </Button>
                             <Link to={'/login'} className="md-row md-full-width">Do you have an account?</Link>

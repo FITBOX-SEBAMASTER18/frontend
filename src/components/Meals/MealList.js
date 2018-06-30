@@ -3,7 +3,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Grid, Cell } from 'react-md';
+import { Grid, Cell, Card } from 'react-md';
 
 import Page from '../Page';
 import { MealFilter } from './MealFilter';
@@ -24,10 +24,12 @@ class MealList extends React.Component {
         return (  
             <Page activeTab={1} >
                 <Grid>
-                <Cell phoneHidden={true} tabletSize={2} desktopSize={3}>
-                    <MealFilter filters={this.props.filters}/>
+                <Cell phoneHidden={true} tabletSize={2} desktopSize={3} style={{"position": "fixed"}}>
+                    <Card>
+                        <MealFilter className="mealFilter" filters={this.props.filters}/>
+                    </Card>
                 </Cell>
-                <Cell phoneSize={6} tabletSize={6} desktopSize={9}>
+                <Cell phoneSize={6} tabletOffset={2} tabletSize={6} desktopOffset={3} desktopSize={9}>
                     <Grid>
                     {this.props.meals.map((meal, i) => <MealListItem key={i} meal={meal} handleMeal={(meal) => this.handleMealClick(meal)}/>)}
                     </Grid>
