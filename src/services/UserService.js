@@ -7,7 +7,7 @@ export default class UserService {
     constructor() {
     }
 
-    static baseURL() {return "http://131.159.199.21:6678/user"; }
+    static baseURL() {return "http://localhost:6678/user"; }
 
     static register(user) {
         return new Promise((resolve, reject) => {

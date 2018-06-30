@@ -19,20 +19,22 @@ class MealListItem extends React.Component {
             <Cell phoneSize={6} tabletSize={4} desktopSize={4}>
                 <Paper onClick={() => this.handleMealClick(this.props.meal)}>
                     <Media aspectRatio="16-9">
-                        <img src="https://www.kitchentreaty.com/wp-content/uploads/2013/08/Brown-Butter-Parmesan-Spaghetti-2.jpg"/>
+                        <img src={this.props.meal.image}/>
                     </Media>
                     <Grid style={{"paddingBottom": "0"}}>
-                        <Cell size={12} style={{"marginTop": "0", "marginBottom": "0"}}><p style={{"textAlign":"center"}}><i>{this.props.meal}</i></p></Cell>
+                        <Cell size={12} style={{"marginTop": "0", "marginBottom": "0"}}><p style={{"textAlign":"center"}}><i>{this.props.meal.name}</i></p></Cell>
                         <Cell align={'center'} size={12} style={{"marginTop": "0", "marginBottom": "0"}}>
                             <Grid style={{"padding": "0"}}>
-                                <Cell align={'center'} offset={2} size={1} style={{position: 'relative'}}><Tooltipped label="Low Calories" position="top" delay={100} ><div><LowCaloriesIcon title="Low Calories" viewBox={'0 0 500 500'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Low Carb" position="top" delay={100} ><div><LowCarbsIcon title="Low Carb" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="High Protein" position="top" delay={100} ><div><HighProteinIcon title="High Protein" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Gluten-Free" position="top" delay={100} ><div><GlutenFreeIcon title="Gluten-Free" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Soy-Free" position="top" delay={100} ><div><SoyFreeIcon title="Soy-Free" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Dairy-Free" position="top" delay={100} ><div><DairyFreeIcon title="Dairy-Free" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Spicy" position="top" delay={100} ><div><SpicyIcon title="Spicy" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
-                                <Cell align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Vegetarian" position="top" delay={100} ><div><VegetarianIcon title="Vegetarian" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell size={0} desktopOffset={(12-this.props.meal.filters.count)/2} tabletOffset={(8-this.props.meal.filters.count)/2} phoneOffset={(this.props.meal.filters.count < 6) ? (6-this.props.meal.filters.count)/2 : 0}/>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('low-calories')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Low Calories" position="top" delay={100} ><div><LowCaloriesIcon title="Low Calories" viewBox={'0 0 500 500'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('low-carb')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Low Carb" position="top" delay={100} ><div><LowCarbsIcon title="Low Carb" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('high-protein')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="High Protein" position="top" delay={100} ><div><HighProteinIcon title="High Protein" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('gluten-free')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Gluten-Free" position="top" delay={100} ><div><GlutenFreeIcon title="Gluten-Free" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('soy-free')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Soy-Free" position="top" delay={100} ><div><SoyFreeIcon title="Soy-Free" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('dairy-free')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Dairy-Free" position="top" delay={100} ><div><DairyFreeIcon title="Dairy-Free" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('spicy')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Spicy" position="top" delay={100} ><div><SpicyIcon title="Spicy" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('vegetarian')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Vegetarian" position="top" delay={100} ><div><VegetarianIcon title="Vegetarian" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
+                                <Cell desktopHidden={!this.props.meal.filters.includes('paleo-friendly')} align={'center'} size={1} style={{position: 'relative'}}><Tooltipped label="Paleo-Friendly" position="top" delay={100} ><div><PaleoFriendlyIcon title="Paleo-Friendly" viewBox={'0 0 60 60'} primary/></div></Tooltipped></Cell>
                             </Grid>
                         </Cell>
                     </Grid>

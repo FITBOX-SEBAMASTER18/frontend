@@ -14,7 +14,6 @@ export class RegisterView extends React.Component {
 
     register(user) {
         UserService.register(user).then( response => {
-            console.log(response)
             if ( response.success ) {
                 UserService.login(user).then( response => {
                     UserService.setCurrentUser(response.data.user)
