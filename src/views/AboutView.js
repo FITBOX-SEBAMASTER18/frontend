@@ -2,6 +2,7 @@ import React from 'react';
 import Page from '../components/Page';
 import { Toolbar, Button, Tabs, Tab, TabsContainer } from 'react-md';
 import { withRouter } from 'react-router-dom'
+import UserService from '../services/UserService';
 
 class AboutView extends React.Component {
   constructor(props) {
@@ -9,8 +10,10 @@ class AboutView extends React.Component {
   };
 
 	render() {	
+		let tab;
+		UserService.isAuthenticated() ? tab=2 : tab=1;
 	  return (
-	      <Page activeTab={2}>
+	      <Page activeTab={tab}>
 	      	<p> FitBox is a meal delivery service for people who want to live a healthy life style without thinking about what to cook.
 						With the variety of items we have on our menu, we offer you a way to save time and still stay healthy!
 						Just pick your meals from our menu for your weekly order, get your meals delivered to your address cooked and ready to eat.

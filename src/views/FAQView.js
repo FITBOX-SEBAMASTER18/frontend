@@ -1,16 +1,19 @@
 import React from 'react';
 import Page from '../components/Page';
 import { withRouter } from 'react-router-dom';
-
+import UserService from '../services/UserService';
 
 class FAQView extends React.Component {
   constructor(props) {
       super(props);
   };
 
-	render() {	
+	render() {
+		let tab;
+		UserService.isAuthenticated() ? tab=3 : tab=2 ;
+
 	  return (
-	      <Page activeTab={3}>
+	      <Page activeTab={tab}>
 	      	<p><b>What is FitBox? </b></p>
 					<p>FitBox is a meal delivery service for people who want to live a healthy life style without thinking about what to cook. We deliver cooked meals right to your home that you can instantly eat or put into the freezer.</p>
 					<p><b>How often do I need to order?</b></p>

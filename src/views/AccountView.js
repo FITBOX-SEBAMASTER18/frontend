@@ -34,9 +34,9 @@ class AccountView extends React.Component {
     }
 
 
-	render() {	
+	render() {
 	  return (
-		<Page>
+		<Page activeTab={4}>
 			<Grid>
       			<Cell size={2}>
 					<p> Hello Muharrem </p>
