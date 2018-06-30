@@ -10,7 +10,7 @@ export default class HttpService {
         let token = window.localStorage['jwtToken'];
         let header = new Headers();
         if(token) {
-            header.append('Authorization', `JWT ${token}`);
+            header.append('Authorization', `Bearer ${token}`);
         }
 
         fetch(url, {
@@ -29,8 +29,8 @@ export default class HttpService {
                 });
             }
         }).then((resp) => {
-            if(resp.hasOwnProperty('token')) {
-                window.localStorage['jwtToken'] = resp.token;
+            if(resp.data.hasOwnProperty('token')) {
+                window.localStorage['jwtToken'] = resp.data.token;
             }
             onSuccess(resp);
         }).catch((e) => {
@@ -42,7 +42,7 @@ export default class HttpService {
         let token = window.localStorage['jwtToken'];
         let header = new Headers();
         if(token) {
-            header.append('Authorization', `JWT ${token}`);
+            header.append('Authorization', `Bearer ${token}`);
         }
         header.append('Content-Type', 'application/json');
 
@@ -63,8 +63,8 @@ export default class HttpService {
                 });
             }
         }).then((resp) => {
-            if(resp.hasOwnProperty('token')) {
-                window.localStorage['jwtToken'] = resp.token;
+            if(resp.data.hasOwnProperty('token')) {
+                window.localStorage['jwtToken'] = resp.data.token;
             }
             onSuccess(resp);
         }).catch((e) => {
@@ -76,7 +76,7 @@ export default class HttpService {
         let token = window.localStorage['jwtToken'];
         let header = new Headers();
         if(token) {
-            header.append('Authorization', `JWT ${token}`);
+            header.append('Authorization', `Bearer ${token}`);
         }
         header.append('Content-Type', 'application/json');
 
@@ -97,8 +97,8 @@ export default class HttpService {
                 });
             }
         }).then((resp) => {
-            if(resp.hasOwnProperty('token')) {
-                window.localStorage['jwtToken'] = resp.token;
+            if(resp.data.hasOwnProperty('token')) {
+                window.localStorage['jwtToken'] = resp.data.token;
             }
             onSuccess(resp);
         }).catch((e) => {
@@ -110,7 +110,7 @@ export default class HttpService {
         let token = window.localStorage['jwtToken'];
         let header = new Headers();
         if(token) {
-            header.append('Authorization', `JWT ${token}`);
+            header.append('Authorization', `Bearer ${token}`);
         }
 
         fetch(url, {
