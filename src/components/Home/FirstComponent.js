@@ -20,15 +20,9 @@ class FirstComponent extends React.Component {
         				Delicious
         			</div>
         			<Grid>
-    	    			<Cell size={6}>
-    							<Button raised onClick={() => this.props.history.push('/register')} 
-                                style={{ float: "right"}} flat secondary swapTheming> Get Started </Button>
-    						</Cell>
-    	    			<Cell size={6}>					
-    							<Button raised onClick={() => this.props.history.push('/login')}  
-                                flat secondary swapTheming> Login </Button>
-    						</Cell> 
-    					</Grid> 
+  							<Button className="get-started" raised onClick={() => this.props.history.push('/register')} 
+                                flat secondary swapTheming> Get Started </Button>
+    				</Grid> 
         		</div>
     	  		<img src={image1} className="cover-img"/>
     	  	</Grid>
