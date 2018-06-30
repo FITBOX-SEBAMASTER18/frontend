@@ -56,7 +56,20 @@ module.exports = {
                 options: {}
               }
             ]
-            }            
+            },
+            {
+                test: /\.svg$/,
+                include: path.join(__dirname, 'public/icons'),
+                use: [{
+                  loader: 'svg-sprite-loader',
+                  options: {
+                    extract: true,
+                    spriteFilename: 'icon-sprites.[hash:8].svg',
+                  },
+                }, {
+                  loader: 'svgo-loader',
+                }],
+            }        
         ]
     },
     plugins: [
