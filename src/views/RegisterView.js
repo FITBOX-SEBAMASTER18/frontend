@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Register from '../components/Register';
-import UserService from '../services/UserService'
+import UserService from '../services/UserService';
+import CartService from '../services/CartService';
 
 export class RegisterView extends React.Component {
 
@@ -16,9 +17,14 @@ export class RegisterView extends React.Component {
         UserService.register(user).then( response => {
             console.log(response)
             if ( response.success ) {
+
                 UserService.login(user).then( response => {
-                    UserService.setCurrentUser(response.data.user)
-                    this.props.history.push("/");
+                    UserService.setCurrentUser(response.data.user);
+                    console.log("BEFORE CREATE")
+                     return CartService.createCart();
+                }).then(() => {
+                        console.log("AFTER THEN")
+                     this.props.history.push("/");
                 }).catch( e => {
 
                 })
