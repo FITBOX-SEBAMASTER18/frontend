@@ -13,9 +13,9 @@ class MyProfile extends React.Component {
         super(props);
 
         this.state = {
-            username : 'vekilince',
-            firstname : 'Muharrem',
-            lastname : 'İnce'
+            username : '',
+            firstname : '',
+            lastname : ''
         };
 
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -23,7 +23,13 @@ class MyProfile extends React.Component {
         this.handleChangeLastname = this.handleChangeLastname.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    componentDidMount(){
+        this.setState({
+            username: this.props.user.email,
+            firstname: this.props.user.name,
+            lastname: this.props.user.surname
+        })
+    }
     handleSubmit(event) {
         event.preventDefault();
 
@@ -51,7 +57,7 @@ class MyProfile extends React.Component {
     render() {
         return (    
                 <form className="md-grid" onSubmit={this.handleSubmit}>
-                    <div className = "md-cell--4">
+                    <div className = "md-cell--12">
                         <div className ="md-grid">
                             <TextField
                                 label = "Email/Username"
