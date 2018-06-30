@@ -17,24 +17,25 @@ class HeaderTabs extends React.Component {
   };
 
 	render(){
+		let fontStyle = { "font-size":"20px" };
 		return (
 			<div className="header-buttons">
 		      <Tabs
       			tabId="header-tabs"
 	          onTabChange={this.handleTabChange}
-	          style={ {marginTop: "14px"}}
+	          style={ {"marginTop": "14px"}}
           	activeTabIndex={this.props.activeTab}
           	onTabChange={this.handleTabChange}
 		      >
-		      	<Tab label="Home" onClick={() => this.props.history.push('/')}>
+		      	<Tab label="Home" style = {fontStyle} onClick={() => this.props.history.push('/')}>
             </Tab>
-	        	<Tab label="Meals" onClick={() => this.props.history.push('/meals')}>
+	        	<Tab label="Meals" style = {fontStyle} onClick={() => this.props.history.push('/meals')}>
 	          </Tab>
-	          <Tab label="About" onClick={() => this.props.history.push('/about')}>
+	          <Tab label="About" style = {fontStyle} onClick={() => this.props.history.push('/about')}>
 	          </Tab>		            
-	          <Tab label="F.A.Q." onClick={() => this.props.history.push('/faq')}>
+	          <Tab label="F.A.Q." style = {fontStyle} onClick={() => this.props.history.push('/faq')}>
 	          </Tab>
-	          <Tab label="My Account" onClick={() => this.props.history.push('/account')}>
+	          <Tab label="My Account" style = {fontStyle} onClick={() => this.props.history.push('/account')}>
 	          </Tab>
 		      </Tabs>
 		  </div>

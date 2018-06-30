@@ -18,7 +18,7 @@ class Header extends React.Component {
         return (
             <Toolbar
                 colored
-                nav={<div className="logo">
+                nav={<div className="header-logo">
                         <Link to="/">
                             <img src={logo}/>
                         </Link>
