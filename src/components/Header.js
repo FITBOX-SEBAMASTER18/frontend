@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import HeaderTabs from './HeaderTabs'
 import logo from '../../public/FitBox.png'
 import {Link} from 'react-router-dom'
-import './header.css'
+import './header.scss'
 
 class Header extends React.Component {
 
