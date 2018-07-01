@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
+import VoteService from '../services/VoteService';
 import { List, ListItem, TextField, Button, DialogContainer, Grid, Cell, Media, MediaOverlay, CardTitle } from 'react-md';
 import './vote-modal.scss';
 
@@ -14,10 +14,17 @@ class VoteModal extends React.Component {
             visible:true,
         };
         this.hide=this.hide.bind(this);
+        this.handleVote=this.handleVote.bind(this);
     }
     hide(){
         this.setState({ visible: false });
     };
+
+    handleVote(mealIndex){
+        console.log("Voting for meal: " + mealIndex);
+        VoteService.vote(this.props.meals[mealIndex]._id);
+        this.hide();
+    }
     render() {
         const { visible } = this.state;
         console.log(this.props.meals);
@@ -44,7 +51,7 @@ class VoteModal extends React.Component {
                         <p> Carbs: {this.props.meals[0].carbohydrates} </p>
                         <p> Proteins: {this.props.meals[0].protein} </p>
                         <Grid>
-                            <Button className="vote-button"raised primary iconClassName="fa fa-thumbs-up">Vote</Button>
+                            <Button onClick={ () => {this.handleVote(0)}} className="vote-button"raised primary iconClassName="fa fa-thumbs-up">Vote</Button>
                         </Grid>
                     </Cell>
                     <Cell size = {4}>
@@ -57,7 +64,7 @@ class VoteModal extends React.Component {
                         <p> Carbs: {this.props.meals[1].carbohydrates} </p>
                         <p> Proteins: {this.props.meals[1].protein} </p>
                         <Grid>
-                            <Button className="vote-button" raised primary iconClassName="fa fa-thumbs-up">Vote</Button>
+                            <Button onClick={() => {this.handleVote(1)}} className="vote-button" raised primary iconClassName="fa fa-thumbs-up">Vote</Button>
                         </Grid>
                     </Cell>
                     <Cell size = {4}>
@@ -70,7 +77,7 @@ class VoteModal extends React.Component {
                         <p> Carbs: {this.props.meals[2].carbohydrates} </p>
                         <p> Proteins: {this.props.meals[2].protein} </p>
                         <Grid>
-                            <Button className="vote-button" raised primary iconClassName="fa fa-thumbs-up">Vote</Button>
+                            <Button onClick={() => {this.handleVote(2)}} className="vote-button" raised primary iconClassName="fa fa-thumbs-up">Vote</Button>
                         </Grid>
                     </Cell>
                 </Grid>
