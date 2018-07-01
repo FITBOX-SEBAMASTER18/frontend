@@ -31,7 +31,7 @@ class HeaderTabs extends React.Component {
 		      	<Tab label="Home" style = {fontStyle} onClick={() => this.props.history.push('/')}>
             </Tab>
             {UserService.isAuthenticated() ? 
-	        		(<Tab label="Meals" style = {fontStyle} onClick={() => this.props.history.push('/meals')}>
+	        		(<Tab label="Menu" style = {fontStyle} onClick={() => this.props.history.push('/menu')}>
 	          	</Tab>) : (null)}
 	          <Tab label="About" style = {fontStyle} onClick={() => this.props.history.push('/about')}>
 	          </Tab>		            
