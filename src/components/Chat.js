@@ -34,6 +34,7 @@ export class Chat extends React.Component {
     console.log('Handle Receive Message');
     console.log(data);
     console.log(this.state.messages);
+    addResponseMessage(data);
   }
 
   componentDidMount() {
@@ -45,7 +46,8 @@ export class Chat extends React.Component {
   handleNewUserMessage(message) {
     console.log(`New message incomig! ${message}`);
     socket.emit('SEND_MESSAGE', {
-        author: this.state.user._id,
+        author: this.state.user.name,
+        id: this.state.user._id,
         message: message
     });
     this.setState({message: ''});
