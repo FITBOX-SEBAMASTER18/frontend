@@ -4,19 +4,51 @@ import {Grid, Cell} from 'react-md';
 import CartMealList from '../components/Cart/CartMealList';
 import AddressCell from '../components/Cart/AddressCell';
 import { withRouter } from 'react-router-dom';
+import CartService from '../services/CartService';
 
 
 class CartView extends React.Component {
   constructor(props) {
-      super(props);
-  };
+			super(props);
+			this.state = {
+				cart: undefined
+			}
+			this.handleDelete = this.handleDelete.bind(this);
+			this.fetchCart = this.fetchCart.bind(this);
+	};
+	
+	componentWillMount(props) {
+		this.fetchCart()
+	}
+
+	fetchCart(){
+		CartService.getCart().then(response => {
+			if ( response.success ) {
+				this.setState({
+					cart: response.data
+				})
+			}
+		}).catch(e => {
+			console.log(e);
+		})
+	}
+
+	handleDelete(meal) {
+		CartService.removeMealFromCart(meal).then(response => {
+			if ( response.success ) {
+				this.fetchCart()
+			}
+		}).catch(e => {
+			console.log(e);
+		});
+	}
 
 	render() {
 	  return (
 	      <Page>
           <Grid>
 	          <Cell size={9}>
-              <CartMealList></CartMealList>
+              <CartMealList cart={this.state.cart} handleDelete={this.handleDelete}></CartMealList>
 	          </Cell>
 	          <Cell size={3}>
 	          	<AddressCell></AddressCell>

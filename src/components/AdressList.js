@@ -10,23 +10,33 @@ class AdressList extends React.Component {
     constructor (props) {
         super(props);
 
+
         this.state = {
+            selected: null,
+            indexOfClickedItem: -1
         };
+
+        this.onListItemClicked = this.onListItemClicked.bind(this);
+    }
+
+    onListItemClicked(index) {
+        this.setState({
+            indexOfClickedItem: index
+        });
+        this.props.setAddressID(this.props.addresses[index]._id, this.props.addresses[index].label);
     }
 
     render() {
         return (  
             <List>
-        <ListItem
-        primaryText="Ev"
-        secondaryText="Ankara"
+                {this.props.addresses.map((address, i) =>        
+                    <ListItem
+        primaryText={address.label}
+        secondaryText={address.address}
+        onClick= {() => {this.onListItemClicked(i)}}
+        active= {this.state.indexOfClickedItem == i ? true: false}
         threeLines
-      />
-      <ListItem
-        primaryText="CHP Genel Merkezi"
-        secondaryText="Ankara"
-        threeLines
-      />
+      />)}
     </List>
         );
     }

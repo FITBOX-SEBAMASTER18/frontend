@@ -16,6 +16,7 @@ export class LoginView extends React.Component {
             if (response.success){
                 UserService.setCurrentUser(response.data.user);
                 this.props.history.push("/");
+                location.reload();
             }
         }).catch( e => {
             this.setState({

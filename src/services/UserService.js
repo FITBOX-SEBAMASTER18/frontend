@@ -39,6 +39,7 @@ export default class UserService {
 
     static logout(){
         window.localStorage.removeItem('jwtToken');
+        window.localStorage.removeItem('user');
     }
 
     static setCurrentUser(user){
@@ -46,7 +47,7 @@ export default class UserService {
     }
 
     static getCurrentUser() {
-        return JSON.parse(window.localStorage['user']);
+        return window.localStorage['user'] ? JSON.parse( window.localStorage['user'])  : null ;
     }
 
     static isAuthenticated() {
