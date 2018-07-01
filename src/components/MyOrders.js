@@ -27,6 +27,7 @@ class MyOrders extends React.Component {
                         <ListItem
                             primaryText={order.date.toLocaleString("en-us", {month: "long"}) + " " + order.date.getUTCDate() + ", " + order.date.getFullYear()}
                             secondaryText={order.price + " " + "Euro"}
+                            onClick={() => {this.props.history.push("/order/"+order._id)}}
                             threeLines
                         />
                     )}

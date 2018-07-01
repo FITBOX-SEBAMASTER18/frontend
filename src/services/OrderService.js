@@ -19,4 +19,15 @@ export default class OrderService {
            });
         });
     }
+
+    static getOrderById(id) {
+        let url = OrderService.baseURL() + "/" + id
+        return new Promise((resolve, reject) => {
+            HttpService.get(url, function(data) {
+                resolve(data);
+            }, function(textStatus) {
+                reject(textStatus);
+            });
+         });
+    }
 }
