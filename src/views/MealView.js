@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Page from '../components/Page';
-import { CardTitle, Media, MediaOverlay, Grid, Cell, Button } from 'react-md';
+import { CardTitle, Media, MediaOverlay, Grid, Cell, Button, Snackbar } from 'react-md';
 import MealService from '../services/MealService'
+import CartService from '../services/CartService'
 
 export class MealView extends React.Component {
 
@@ -18,8 +19,13 @@ export class MealView extends React.Component {
                 "fat": 0,
                 "protein": 0,
                 "carbohydrates": 0,
-            }
+            },
+            toasts: [],
+            autohide: true
         };
+        this.addMealToCart = this.addMealToCart.bind(this);
+        this.addToast = this.addToast.bind(this);
+        this.dismissToast = this.dismissToast.bind(this);
     }
 
     componentWillMount(props){
@@ -36,7 +42,32 @@ export class MealView extends React.Component {
         })
     }
 
+    addMealToCart() {
+        CartService.addMealToCart(this.state.meal).then( response => {
+            if ( response.success ) {
+                console.log(response);
+                this.addToast("Meal Added to the Cart!")
+            }
+        }).catch( e => {
+            this.addToast("Error: Meal Couldn't be added to the Cart!")
+        })
+    }
+
+    addToast(text, action, autohide = true) {
+        this.setState((state) => {
+          const toasts = state.toasts.slice();
+          toasts.push({ text, action });
+          return { toasts, autohide };
+        });
+      };
+
+    dismissToast(){
+        const [, ...toasts] = this.state.toasts;
+        this.setState({ toasts });
+    };
+
     render() {
+        const { toasts, autohide } = this.state;
         return (
             <Page activeTab={1}>
                 <div className="md-grid">
@@ -56,7 +87,7 @@ export class MealView extends React.Component {
                                 </p>
                             </div>
                             <div className="md-cell md-cell--6" align="right">
-                                <Button icon primary >add_shopping_cart</Button>
+                                <Button icon primary onClick={this.addMealToCart} >add_shopping_cart</Button>
                             </div>
                         </div>
                         <div className="md-grid">
@@ -102,6 +133,12 @@ export class MealView extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Snackbar
+                    id="cart-snackbar"
+                    toasts={toasts}
+                    autohide={autohide}
+                    onDismiss={this.dismissToast}
+                />
             </Page>
         );
     }
