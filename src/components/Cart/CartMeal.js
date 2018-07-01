@@ -36,7 +36,7 @@ class CartMeal extends React.Component {
           		<span> {count} </span>          		
               </Cell>
               <Cell size={2} className="meal-amount">
-          		<span> {meal.price * count} </span>          		
+          		<span> {meal.price * count} €</span>          		
           	</Cell>
           	<Cell size={1}>
               {button}

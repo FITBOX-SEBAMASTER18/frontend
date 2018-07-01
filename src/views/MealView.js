@@ -128,7 +128,7 @@ export class MealView extends React.Component {
                                 </p>
                             </div>
                             <div className="md-cell md-cell--12" align="right">
-                                <Button raised primary onClick={this.addMealToCart} ><b>Add To Cart:</b> {this.state.meal.price} Euro</Button>
+                                <Button raised primary onClick={this.addMealToCart} ><b>Add To Cart:</b> {this.state.meal.price} €</Button>
                             </div>
                         </div>
                     </div>

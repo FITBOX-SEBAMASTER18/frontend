@@ -65,7 +65,7 @@ class CartMealList extends React.Component {
 					<Grid>
 						<Cell offset={7} size={2} className="amount-title"> <h2>Total</h2> </Cell>
 						<Cell size={2} className="amount-title">
-							<h2 style={{'textAlign': 'center'}}>{price}</h2>
+							<h2 style={{'textAlign': 'center'}}>{price} €</h2>
 						</Cell>
 					</Grid>
 	      </div>
