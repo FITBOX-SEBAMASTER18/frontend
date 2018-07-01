@@ -27,10 +27,10 @@ class VoteModal extends React.Component {
     }
     render() {
         const { visible } = this.state;
-        console.log(this.props.meals);
         if(this.props.meals.length == 0) return null;
-        console.log("didnt return")
-        return (  
+         if (this.props.meals != "") {
+            console.log("meals not empty")
+            return (
             <DialogContainer
               id="voting-dialog"
               visible={visible}
@@ -83,6 +83,10 @@ class VoteModal extends React.Component {
                 </Grid>
             </DialogContainer>
         );
+        }         else {
+            console.log("meals empty")
+            return null
+        }
     }
 }
 

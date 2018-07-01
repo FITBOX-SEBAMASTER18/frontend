@@ -18,7 +18,15 @@ export default class MealService {
            });
        });
     }
-
+    static getMeals() {
+       return new Promise((resolve, reject) => {
+           HttpService.get(`${this.baseURL()}`, function(data) {
+               resolve(data);
+           }, function(textStatus) {
+               reject(textStatus);
+           });
+       });
+    }
     static getFilters() {
         return new Promise((resolve, reject) => {
             var filters =   [{id: "low-calories", text: "Low Calories"},
