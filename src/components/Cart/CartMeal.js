@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Cell} from 'react-md';
+import {Grid, Cell, Media} from 'react-md';
 import { withRouter } from 'react-router-dom';
 import {Button} from 'react-md';
 import './cartmeal.scss';
@@ -24,8 +24,10 @@ class CartMeal extends React.Component {
       return (
           <div className="cart-meal">
           <Grid>
-          	<Cell size={4} className="meal-img">
-          		<img src={meal.image}/>
+              <Cell size={4} className="meal-img">
+                <Media aspectRatio="16-9">
+                  <img src={meal.image}/>
+                  </Media>
           	</Cell>
           	<Cell size={3} className="meal-name">
           		<span> {meal.name} </span>
