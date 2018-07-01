@@ -72,8 +72,6 @@ export class Home extends React.Component {
                 <FirstComponent/>
                 <SecondComponent/>
                 <ThirdComponent meals={this.state.meals} />
-                <FourthComponent goToPage={this.goToPage}/>
-                <FifthComponent/>
             </Page>
         );
     }
