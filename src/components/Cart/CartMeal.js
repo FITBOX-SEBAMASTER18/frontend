@@ -17,6 +17,10 @@ class CartMeal extends React.Component {
     render() {
         let meal = this.props.meal;
         let count = this.props.count;
+        var button;
+        if (this.props.canDelete){
+            button = <Button className="delete-meal" icon onClick={this.handleDelete}>delete</Button>
+        }
       return (
           <div className="cart-meal">
           <Grid>
@@ -30,7 +34,7 @@ class CartMeal extends React.Component {
           		<span> {count} </span>          		
           	</Cell>
           	<Cell size={2}>
-              <Button className="delete-meal" icon onClick={this.handleDelete}>delete</Button>
+              {button}
           	</Cell>
           </Grid>
           </div>
