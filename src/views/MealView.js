@@ -81,7 +81,7 @@ export class MealView extends React.Component {
                     </div>
                     <div className="md-cell md-cell--6">
                         <div className="md-grid">
-                            <div className="md-cell md-cell--6" >
+                            <div className="md-cell md-cell--12" >
                                 <h2 style={{verticalAlign: 'middle'}}>
                                     {this.state.meal.name}
                                 </h2>

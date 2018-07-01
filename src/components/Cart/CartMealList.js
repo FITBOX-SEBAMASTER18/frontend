@@ -46,11 +46,28 @@ class CartMealList extends React.Component {
 	        	</Cell>
 	        	<Cell size={1}>
 	        	</Cell>
-	        </Grid>
+					</Grid>
+					<hr
+							style={{
+									color: "black",
+									height: 1
+							}}
+					/>
 	    		{countedMeals.map((mealObj, i) => 
 	    			<CartMeal key={i} meal={mealObj.meal} count={mealObj.count} handleDelete={this.props.handleDelete} canDelete={this.props.canDelete}/>
 					)}
-					<h2>Total Price: {price}</h2>
+					<hr
+							style={{
+									color: "black",
+									height: 1
+							}}
+					/>
+					<Grid>
+						<Cell offset={7} size={2} className="amount-title"> <h2>Total</h2> </Cell>
+						<Cell size={2} className="amount-title">
+							<h2 style={{'textAlign': 'center'}}>{price}</h2>
+						</Cell>
+					</Grid>
 	      </div>
       );
   }
