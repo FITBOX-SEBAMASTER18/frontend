@@ -18,7 +18,7 @@ class MyAdress extends React.Component {
 
     render() {
         return (  
-            <div>  
+            <div className="address-container">  
             <h1> My Adresses </h1>
             <br/>
             <AdressList/>
