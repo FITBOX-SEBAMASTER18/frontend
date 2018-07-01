@@ -43,4 +43,28 @@ export default class CartService {
             });
         });
     }
+
+    static purchase() {
+        let url = this.baseURL() + "/purchase"
+        return new Promise((resolve, reject) => {
+            HttpService.post(url, {}, function(data) {
+                resolve(data);
+            }, function(textStatus) {
+                reject(textStatus);
+            });
+        });
+    }
+
+    static removeMealFromCart(meal) {
+        let url = this.baseURL() + "/removeFromCart"
+        return new Promise((resolve, reject) => {
+            HttpService.post(url, {
+                mealId: meal._id
+            }, function(data) {
+                resolve(data);
+            }, function(textStatus) {
+                reject(textStatus);
+            });
+        });
+    }
 }

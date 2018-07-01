@@ -7,7 +7,12 @@ import './cartmeal.scss';
 class CartMeal extends React.Component {
   constructor(props) {
       super(props);
+      this.handleDelete = this.handleDelete.bind(this);
   };
+
+  handleDelete(){
+    this.props.handleDelete(this.props.meal);
+  }
 
     render() {
     	let meal = this.props.meal;
@@ -24,7 +29,7 @@ class CartMeal extends React.Component {
           		<span> {meal.amount} </span>          		
           	</Cell>
           	<Cell size={2}>
-              <Button className="delete-meal" icon>delete</Button>
+              <Button className="delete-meal" icon onClick={this.handleDelete}>delete</Button>
           	</Cell>
           </Grid>
           </div>
