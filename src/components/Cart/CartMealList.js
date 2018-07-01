@@ -38,7 +38,7 @@ class CartMealList extends React.Component {
 	        	</Cell>
 	        </Grid>
 	    		{countedMeals.map((mealObj, i) => 
-	    			<CartMeal key={i} meal={mealObj.meal} count={mealObj.count} handleDelete={this.props.handleDelete}/>
+	    			<CartMeal key={i} meal={mealObj.meal} count={mealObj.count} handleDelete={this.props.handleDelete} canDelete={this.props.canDelete}/>
 	    		)}
 	      </div>
       );

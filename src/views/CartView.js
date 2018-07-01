@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../components/Page';
-import {Grid, Cell} from 'react-md';
+import {Grid, Cell, Button} from 'react-md';
 import CartMealList from '../components/Cart/CartMealList';
 import AddressCell from '../components/Cart/AddressCell';
 import { withRouter } from 'react-router-dom';
@@ -17,6 +17,7 @@ class CartView extends React.Component {
 			}
 			this.handleDelete = this.handleDelete.bind(this);
 			this.fetchCart = this.fetchCart.bind(this);
+			this.purchase = this.purchase.bind(this);
 	};
 	
 	componentWillMount(props) {
@@ -55,16 +56,30 @@ class CartView extends React.Component {
 		});
 	}
 
+	purchase() {
+		console.log("PURCHASE")
+		CartService.purchase().then(response => {
+			console.log(response)
+			if ( response.success ) {
+				this.fetchCart()
+			}
+		}).catch(e => {
+			console.log(e);
+		})
+	}
+
 	render() {
 	  return (
 	      <Page>
           <Grid>
 	          <Cell size={9}>
-              <CartMealList cart={this.state.cart} handleDelete={this.handleDelete}></CartMealList>
+              <CartMealList cart={this.state.cart} canDelete={true} handleDelete={this.handleDelete}></CartMealList>
 	          </Cell>
 	          <Cell size={3}>
-	          	<AddressCell addresses={this.state.addresses}></AddressCell>
-	          </Cell>
+							<AddressCell addresses={this.state.addresses}></AddressCell>
+							<Button onClick={() => {this.purchase()}} raised primary className="md-row md-full-width">Purchase
+							</Button>
+						</Cell>
           </Grid>
 	      </Page>
 	  );

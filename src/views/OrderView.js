@@ -16,9 +16,9 @@ class OrderView extends React.Component {
 	
 	componentWillMount(props) {
         let id = this.props.match.params.id;
-        console.log(id);
 		OrderService.getOrderById(id).then(response => {
-            if ( repsonse.success ) {
+            console.log(response.data);
+            if ( response.success ) {
                 this.setState({
                     order: response.data
                 })
@@ -33,7 +33,7 @@ class OrderView extends React.Component {
 	      <Page>
             <Grid>
                 <Cell size={12}>
-                    <CartMealList cart={this.state.order} handleDelete={this.handleDelete}></CartMealList>
+                    <CartMealList cart={this.state.order} canDelete={false}></CartMealList>
                 </Cell>
             </Grid>
 	      </Page>
