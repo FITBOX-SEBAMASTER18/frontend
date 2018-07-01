@@ -5,7 +5,7 @@ import 'react-chat-widget/lib/styles.css';
 import './chat.scss';
 import io from "socket.io-client";
 import UserService from '../services/UserService';
-const socket = io('localhost:6678');
+const socket = io('131.159.199.21:6678');
 
 export class Chat extends React.Component {
 

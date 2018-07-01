@@ -10,8 +10,8 @@ import FifthComponent from "../components/Home/FifthComponent";
 import MealListItem from '../components/Meals/MealListItem';
 import MenuService from "../services/MenuService";
 import ReactPageScroller from "react-page-scroller";
+import VoteModal from '../components/VoteModal';
 import '../components/Home/home.scss'
-
 export class Home extends React.Component {
 
     constructor(props) {
@@ -49,6 +49,7 @@ export class Home extends React.Component {
     render() {
         return (
             <Page activeTab={0}>
+                <VoteModal meals={this.state.meals} ></VoteModal>
                 <FirstComponent/>
                 <SecondComponent/>
                 <ThirdComponent meals={this.state.meals} />
