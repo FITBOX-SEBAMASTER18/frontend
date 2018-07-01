@@ -14,36 +14,28 @@ class AddressCell extends React.Component {
 			return null
 		}
 		else {
+			var addresses = [];
+			{this.props.addresses.map(function(address, i){
+				let temp = {
+					label: address.label,
+					value: i
+				};
+				addresses.push(temp);
+			}
+			)}
+			console.log("Addresesss:")
+			console.log(addresses);
 			return (
 				<div className="address-list">
 					<h2> Your Addresses </h2>
-					{this.props.addresses.map((address, i) =>
 						<SelectionControlGroup
-							key={i}
-							address={address}
 							id="address-list-radio"
 							name="address-radio"
 							type="radio"
 							defaultValue="1"
-							controls={[{
-								label: address.label,
-								value: toString(i)
-							}]}
+							controls={addresses}
 						/>
-					)}
-					{/*<SelectionControlGroup
-						id="address-list-radio"
-						name="address-radio"
-						type="radio"
-						defaultValue="A"
-						controls={[{
-							label: this.props.addresses[0].label,
-							value: 'A',
-						}, {
-							label: this.props.addresses[1].label,
-							value: 'B',
-						}]}
-					/>*/}
+
 				</div>
 			);
 		}
