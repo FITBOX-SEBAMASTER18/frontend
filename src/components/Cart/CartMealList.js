@@ -9,29 +9,16 @@ class CartMealList extends React.Component {
   };
 
     render() {
-    	let mockMeal = [{
-	      name:           "Kebap",
-	      amount:         99,
-	      ingredients:    ["meat", "spice", "bread"],
-	      calories:       1000,
-	      fat:            20,
-	      protein:        20,
-	      carbohydrates:  50,
-	      price:          10,
-	      image:   				"https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/26198470_294713667718216_1607546832873495585_o.jpg?_nc_cat=0&oh=4e6422f80f73a418b22154a2a9d57d19&oe=5BE844F1"
-    	},
-    	{
-	      name:           "Kebap",
-	      amount:         99,
-	      ingredients:    ["meat", "spice", "bread"],
-	      calories:       1000,
-	      fat:            20,
-	      protein:        20,
-	      carbohydrates:  50,
-	      price:          10,
-	      image:   				"https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/26198470_294713667718216_1607546832873495585_o.jpg?_nc_cat=0&oh=4e6422f80f73a418b22154a2a9d57d19&oe=5BE844F1"
-    	}];
-
+		var countedMeals = [];
+		if (this.props.cart != undefined) {
+			this.props.cart.meals.forEach(meal => {
+				var count = this.props.cart.meals.filter(meal2 => {return meal._id === meal2._id}).length
+				if (countedMeals.filter(mealObj => {return mealObj.meal._id === meal._id}).length <= 0){
+					countedMeals.push({meal: meal, count: count})
+				}
+			})
+		}
+		console.log(countedMeals)
       return (
       	<div className="cart-meal-list">
       		<Grid>
@@ -50,8 +37,8 @@ class CartMealList extends React.Component {
 	        	<Cell size={2}>
 	        	</Cell>
 	        </Grid>
-	    		{mockMeal.map((meal, i) => 
-	    			<CartMeal key={i} meal={meal}/>
+	    		{countedMeals.map((mealObj, i) => 
+	    			<CartMeal key={i} meal={mealObj.meal} count={mealObj.count} handleDelete={this.props.handleDelete}/>
 	    		)}
 	      </div>
       );
