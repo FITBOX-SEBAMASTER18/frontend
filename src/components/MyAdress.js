@@ -54,34 +54,24 @@ class MyAdress extends React.Component {
             l_delete: label
         });
         console.log(id);
-
         console.log(label);
     }
 
     deleteAddress(){
-        let address_label = this.state.l_delete;
-        let address_id = this.state.delete;
-        this.setState({
-            delete: null,
-            l_delete: null
-        })
 
-        //api delete request
-        console.log("deleted"+ address_label+ " - "+address_id)
-        
+        let address = {
+            _id: this.state.delete,
+            label: this.state.l_delete
+        }
+        this.props.addressDeleted(address)
     }
 
     addAddress(){
-        let address_label = this.state.l_add;
-        let address = this.state.add;
-        this.setState({
-            address_label: null,
-            address: null
-        })
-
-        //api add request
-        console.log("add"+ address_label+ " - "+address)
-        
+        let address = {
+            address: this.state.add,
+            label: this.state.l_add
+        }
+        this.props.addressAdded(address);
     }
 
     handleChangeNewAddressLabel(value){

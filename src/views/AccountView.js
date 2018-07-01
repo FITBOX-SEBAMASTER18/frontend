@@ -8,6 +8,7 @@ import UserService from '../services/UserService';
 import { LoadingOverlay, Loader } from 'react-overlay-loader';
 
 import 'react-overlay-loader/styles.css';
+import AddressService from '../services/AddressService';
 
 class AccountView extends React.Component {
   constructor(props) {
@@ -15,20 +16,28 @@ class AccountView extends React.Component {
 		this.state = {
 			title : 'FitBox - My Account',
 					 indexOfClickedItem: -1,
-					 	addresses: [
-            	{label: "Ev", address: "Ankara", _id:"0"},
-            	{label: "CHP Genel Merkezi", address: "Ankara", _id:"1"}
-        		],
+					 	addresses: [],
         		account: UserService.getCurrentUser()
 				};
 	
 		document.title = this.state.title;
-    	this.onListItemClicked = this.onListItemClicked.bind(this);
-  		this.mainContent = <MyProfile user={this.state.account}/>;  //this
+		this.handleAddNewAddress = this.handleAddNewAddress.bind(this);
+		this.handleDeleteAddress = this.handleDeleteAddress.bind(this);
+		this.onListItemClicked = this.onListItemClicked.bind(this);
+		this.mainContent = <MyProfile user={this.state.account}/>;  //this
   };
 
-  componentDidMount(){
-  }
+  componentWillMount(props){
+		AddressService.getAddress().then(response => {
+				if (response.success) {
+					this.setState({
+						addresses: response.data
+					})
+				}
+		}).catch(e => {
+			console.log(e)
+		})
+	}
 
   onListItemClicked(index) {
     this.setState({
@@ -38,21 +47,49 @@ class AccountView extends React.Component {
 	  if(index == 0){
 			data = <MyProfile user={this.state.account}></MyProfile>
 	  }else{
-		data=<MyAdress addresses={this.state.addresses}/>
+			data=<MyAdress addresses={this.state.addresses} addressAdded={this.handleAddNewAddress} addressDeleted={this.handleDeleteAddress}/>
 	  }
 
   	this.mainContent = <p>{data}</p>;
-  }
+	}
+	
+	handleAddNewAddress(address) {
+		AddressService.addNewAddress(address).then(response => {
+			if ( response.success ) {
+				let addressList = this.state.addresses;
+				addressList.push(response.data);
+				this.setState({
+					addresses: addressList
+				});
+			}
+		}).catch(e => {
+			console.log(e);
+		})
+	}
 
+	handleDeleteAddress(address) {
+		AddressService.deleteAddress(address).then(response => {
+			if ( response.success ) {
+				let addressList = this.state.addresses;
+				let index = addressList.indexOf(address);
+				addressList.splice(index, 1);
+				this.setState({
+					addresses: addressList
+				});
+			}
+		}).catch(e => {
+			console.log(e);
+		})
+	}
 
 	render() {
 	  return (
 		<Page activeTab={4}>
 			<Grid>
   			<Cell size={3} offset={1}>
-					<p> Hello Muharrem </p>
+					<p> Hello {this.state.account.name} </p>
 					<media aspectRatio={'1-1'}>
-					<img src="https://pbs.twimg.com/profile_images/996353371543138304/zo1w3vGs_400x400.jpg" 
+					<img src={this.state.account.picture} 
 					style={{width:"70%"}}/>
 					</media>
 					<List >
