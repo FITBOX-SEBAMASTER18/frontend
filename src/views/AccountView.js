@@ -16,14 +16,15 @@ class AccountView extends React.Component {
 			title : 'FitBox - My Account',
 					 indexOfClickedItem: -1,
 					 	addresses: [
-            {label: "Ev", address: "Ankara", _id:"0"},
-            {label: "CHP Genel Merkezi", address: "Ankara", _id:"1"}
-        ]
+            	{label: "Ev", address: "Ankara", _id:"0"},
+            	{label: "CHP Genel Merkezi", address: "Ankara", _id:"1"}
+        		],
+        		account: UserService.getCurrentUser()
 				};
 	
 		document.title = this.state.title;
     	this.onListItemClicked = this.onListItemClicked.bind(this);
-    	this.mainContent = <MyProfile />;  //this
+  		this.mainContent = <MyProfile user={this.state.account}/>;  //this
   };
 
   componentDidMount(){
