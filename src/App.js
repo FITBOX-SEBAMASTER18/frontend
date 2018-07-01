@@ -32,13 +32,14 @@ export default class App extends React.Component {
             { component: AccountView, path: '/account'},
             { component: OrderView, path: '/order'},
             { component: CartView, path: '/cart'}
-        ]
+        ],
     };
     document.title = this.state.title;
   }
 
   componentDidMount(){
     document.title = this.state.title;
+    (window.localStorage['user']) ? this.setState({isLoggedIn : true}) : this.setState({isLoggedIn : false});
   }
 
   render() {
