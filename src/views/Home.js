@@ -5,8 +5,6 @@ import Page from '../components/Page';
 import FirstComponent from "../components/Home/FirstComponent";
 import SecondComponent from "../components/Home/SecondComponent";
 import ThirdComponent from "../components/Home/ThirdComponent";
-import FourthComponent from "../components/Home/FourthComponent";
-import FifthComponent from "../components/Home/FifthComponent";
 import MealListItem from '../components/Meals/MealListItem';
 import MenuService from "../services/MenuService";
 import VoteService from '../services/VoteService';
