@@ -45,7 +45,7 @@ class MealList extends React.Component {
     render() {
         let weekHeader;
         if (this.props.startDate != undefined) {
-            weekHeader = <Cell size={12}><h2 style={{"textAlign":"center"}}>{"The week of " + this.props.startDate.toLocaleString("en-us", {month: "long"}) + " " + this.props.startDate.getDay() }</h2></Cell>
+            weekHeader = <Cell size={12}><h2 style={{"textAlign":"center"}}>{"The week of " + this.props.startDate.toLocaleString("en-us", {month: "long"}) + " " + this.props.startDate.getUTCDate() }</h2></Cell>
         } else {
             weekHeader = <Cell size={12}><h2 style={{"textAlign":"center"}}>{"The week of undefined" }</h2></Cell>
         }
