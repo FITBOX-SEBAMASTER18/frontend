@@ -9,9 +9,9 @@ export default class AddressService {
     static baseURL() {return "http://localhost:6678/address" }
 
     static getAddress() {
-        let url = this.baseURL()
+        let url = this.baseURL() + "/user/"
         return new Promise((resolve, reject) => {
-           HttpService.get(url , function(data) {
+           HttpService.post(url, {} , function(data) {
                resolve(data);
            }, function(textStatus) {
                reject(textStatus);
