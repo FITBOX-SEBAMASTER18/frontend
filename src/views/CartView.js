@@ -5,13 +5,15 @@ import CartMealList from '../components/Cart/CartMealList';
 import AddressCell from '../components/Cart/AddressCell';
 import { withRouter } from 'react-router-dom';
 import CartService from '../services/CartService';
+import AddressService from '../services/AddressService'
 
 
 class CartView extends React.Component {
   constructor(props) {
 			super(props);
 			this.state = {
-				cart: undefined
+				cart: undefined,
+				addresses: []
 			}
 			this.handleDelete = this.handleDelete.bind(this);
 			this.fetchCart = this.fetchCart.bind(this);
@@ -19,6 +21,16 @@ class CartView extends React.Component {
 	
 	componentWillMount(props) {
 		this.fetchCart()
+		AddressService.getAddress().then( response => {
+			if ( response.success ) {
+					console.log(response.data);
+					this.setState({
+							addresses: response.data
+					})
+			}
+	}).catch( e => {
+			console.log(e)
+	})
 	}
 
 	fetchCart(){
@@ -51,7 +63,7 @@ class CartView extends React.Component {
               <CartMealList cart={this.state.cart} handleDelete={this.handleDelete}></CartMealList>
 	          </Cell>
 	          <Cell size={3}>
-	          	<AddressCell></AddressCell>
+	          	<AddressCell addresses={this.state.addresses}></AddressCell>
 	          </Cell>
           </Grid>
 	      </Page>
