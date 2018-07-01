@@ -47,7 +47,7 @@ class VoteModal extends React.Component {
                         </Media>
                         <p className="meal-name"> {this.props.meals[0].name} </p>
                         <p> Calories: {this.props.meals[0].calories} </p>
-                        <p> Fat: {this.props.meals[0].calories} </p>
+                        <p> Fat: {this.props.meals[0].fat} </p>
                         <p> Carbs: {this.props.meals[0].carbohydrates} </p>
                         <p> Proteins: {this.props.meals[0].protein} </p>
                         <Grid>
@@ -60,7 +60,7 @@ class VoteModal extends React.Component {
                         </Media>
                         <p className="meal-name"> {this.props.meals[1].name} </p>
                         <p> Calories: {this.props.meals[1].calories} </p>
-                        <p> Fat: {this.props.meals[1].calories} </p>
+                        <p> Fat: {this.props.meals[1].fat} </p>
                         <p> Carbs: {this.props.meals[1].carbohydrates} </p>
                         <p> Proteins: {this.props.meals[1].protein} </p>
                         <Grid>
@@ -73,7 +73,7 @@ class VoteModal extends React.Component {
                         </Media>
                         <p className="meal-name"> {this.props.meals[2].name} </p>
                         <p> Calories: {this.props.meals[2].calories} </p>
-                        <p> Fat: {this.props.meals[2].calories} </p>
+                        <p> Fat: {this.props.meals[2].fat} </p>
                         <p> Carbs: {this.props.meals[2].carbohydrates} </p>
                         <p> Proteins: {this.props.meals[2].protein} </p>
                         <Grid>
