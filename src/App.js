@@ -6,10 +6,10 @@ import { LoginView } from './views/LoginView';
 import { MealListView } from './views/MealListView';
 import { RegisterView } from './views/RegisterView';
 import { MealView } from './views/MealView';
+import OrderView from './views/OrderView';
 import AboutView from './views/AboutView';
 import AccountView from './views/AccountView';
 import FAQView from './views/FAQView';
-import { OrderView } from './views/OrderView';
 import CartView from './views/CartView';
 import { Chat } from './components/Chat';
 import Favicon from 'react-favicon';
@@ -30,7 +30,7 @@ export default class App extends React.Component {
             { component: AboutView, path: '/about'},
             { component: FAQView, path: '/faq'},
             { component: AccountView, path: '/account'},
-            { component: OrderView, path: '/order'},
+            { component: OrderView, path: '/order/:id'},
             { component: CartView, path: '/cart'}
         ],
     };

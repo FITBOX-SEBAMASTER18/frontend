@@ -2,6 +2,7 @@ import React from 'react';
 import Page from '../components/Page';
 import MyProfile from '../components/MyProfile';
 import MyAdress from '../components/MyAdress';
+import MyOrders from '../components/MyOrders';
 import { withRouter } from 'react-router-dom';
 import { List, ListItem, CardTitle, Media, MediaOverlay, Grid, Cell } from 'react-md';
 import UserService from '../services/UserService';
@@ -9,6 +10,7 @@ import { LoadingOverlay, Loader } from 'react-overlay-loader';
 
 import 'react-overlay-loader/styles.css';
 import AddressService from '../services/AddressService';
+import OrderService from '../services/OrderService';
 
 class AccountView extends React.Component {
   constructor(props) {
@@ -17,7 +19,8 @@ class AccountView extends React.Component {
 			title : 'FitBox - My Account',
 					 indexOfClickedItem: -1,
 					 	addresses: [],
-        		account: UserService.getCurrentUser()
+						account: UserService.getCurrentUser(),
+						orders: []
 				};
 	
 		document.title = this.state.title;
@@ -38,6 +41,17 @@ class AccountView extends React.Component {
 		}).catch(e => {
 			console.log(e)
 		})
+
+		OrderService.getOrdersOfUser().then( response => {
+			console.log(response);
+			if ( response.success ) {
+				this.setState({
+					orders: response.data
+				})
+			}
+		}).catch(e => {
+			console.log(e)
+		})
 	}
 
   onListItemClicked(index) {
@@ -47,9 +61,11 @@ class AccountView extends React.Component {
 		let data = "none";
 	  if(index == 0){
 			data = <MyProfile user={this.state.account} onSubmit={this.handleUserEdit}></MyProfile>
-	  }else{
+	  } else if (index == 1){
 			data=<MyAdress addresses={this.state.addresses} addressAdded={this.handleAddNewAddress} addressDeleted={this.handleDeleteAddress}/>
-	  }
+	  } else {
+			data=<MyOrders orders={this.state.orders}/>
+		}
 
   	this.mainContent = <p>{data}</p>;
 	}
@@ -110,7 +126,8 @@ class AccountView extends React.Component {
 					</media>
 					<List >
   					<ListItem primaryText="My Profile" onClick= {() => this.onListItemClicked(0)}/>
-  					<ListItem primaryText="My Adresses" onClick={() => this.onListItemClicked(1)}/>
+						<ListItem primaryText="My Adresses" onClick={() => this.onListItemClicked(1)}/>
+						<ListItem primaryText="My Orders" onClick={() => this.onListItemClicked(2)}/>
   				</List>
 				</Cell>
   			<Cell size={7} style={{margin: 30}}>
