@@ -20,7 +20,7 @@ class FirstComponent extends React.Component {
         				Delicious
         			</div>
         			<Grid>
-  							<Button className="get-started" raised onClick={() => this.props.history.push('/register')} 
+  							<Button className="get-started" onClick={() => this.props.history.push('/register')} 
                                 flat secondary swapTheming> Get Started </Button>
     				</Grid> 
         		</div>
