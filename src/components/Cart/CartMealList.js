@@ -9,11 +9,16 @@ class CartMealList extends React.Component {
   };
 
     render() {
-		var meals = [];
+		var countedMeals = [];
 		if (this.props.cart != undefined) {
-			meals = this.props.cart.meals;
+			this.props.cart.meals.forEach(meal => {
+				var count = this.props.cart.meals.filter(meal2 => {return meal._id === meal2._id}).length
+				if (countedMeals.filter(mealObj => {return mealObj.meal._id === meal._id}).length <= 0){
+					countedMeals.push({meal: meal, count: count})
+				}
+			})
 		}
-
+		console.log(countedMeals)
       return (
       	<div className="cart-meal-list">
       		<Grid>
@@ -32,8 +37,8 @@ class CartMealList extends React.Component {
 	        	<Cell size={2}>
 	        	</Cell>
 	        </Grid>
-	    		{meals.map((meal, i) => 
-	    			<CartMeal key={i} meal={meal} handleDelete={this.props.handleDelete}/>
+	    		{countedMeals.map((mealObj, i) => 
+	    			<CartMeal key={i} meal={mealObj.meal} count={mealObj.count} handleDelete={this.props.handleDelete}/>
 	    		)}
 	      </div>
       );
