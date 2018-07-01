@@ -15,28 +15,32 @@ class MyProfile extends React.Component {
         this.state = {
             username : '',
             firstname : '',
-            lastname : ''
+            lastname : '',
+            picture: ''
         };
 
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangeFirstname = this.handleChangeFirstname.bind(this);
         this.handleChangeLastname = this.handleChangeLastname.bind(this);
+        this.handleChangePicture = this.handleChangePicture.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount(){
         this.setState({
             username: this.props.user.email,
             firstname: this.props.user.name,
-            lastname: this.props.user.surname
+            lastname: this.props.user.surname,
+            picture: this.props.user.picture
         })
     }
     handleSubmit(event) {
         event.preventDefault();
 
         let user = {
-            username: this.state.username,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname
+            email: this.state.username,
+            name: this.state.firstname,
+            surname: this.state.lastname,
+            picture: this.state.picture
         };
 
         this.props.onSubmit(user);
@@ -52,6 +56,10 @@ class MyProfile extends React.Component {
 
     handleChangeLastname(value) {
         this.setState(Object.assign({}, this.state, {lastname: value}));
+    }
+
+    handleChangePicture(value) {
+        this.setState(Object.assign({}, this.state, {picture: value}));
     }
 
     render() {
@@ -85,6 +93,14 @@ class MyProfile extends React.Component {
                                 required={true}
                                 value={this.state.lastname}
                                 onChange={this.handleChangeLastname}
+                                errorText="Lastname is required"/>
+                            <TextField
+                                label="Picture URL"
+                                id="PictureField"
+                                type="text"
+                                className="md-row md-full-width"
+                                value={this.state.picture}
+                                onChange={this.handleChangePicture}
                                 errorText="Lastname is required"/>
                             <Button id="submit" type="submit"
                                 disabled={this.state.username == undefined || this.state.username == '' || this.state.firstname == undefined || this.state.firstname == '' || this.state.lastname == undefined || this.state.lastname == '' ? true : false}

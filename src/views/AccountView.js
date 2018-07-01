@@ -23,8 +23,9 @@ class AccountView extends React.Component {
 		document.title = this.state.title;
 		this.handleAddNewAddress = this.handleAddNewAddress.bind(this);
 		this.handleDeleteAddress = this.handleDeleteAddress.bind(this);
+		this.handleUserEdit = this.handleUserEdit.bind(this);
 		this.onListItemClicked = this.onListItemClicked.bind(this);
-		this.mainContent = <MyProfile user={this.state.account}/>;  //this
+		this.mainContent = <MyProfile user={this.state.account} onSubmit={this.handleUserEdit}/>;
   };
 
   componentWillMount(props){
@@ -45,12 +46,27 @@ class AccountView extends React.Component {
 		});
 		let data = "none";
 	  if(index == 0){
-			data = <MyProfile user={this.state.account}></MyProfile>
+			data = <MyProfile user={this.state.account} onSubmit={this.handleUserEdit}></MyProfile>
 	  }else{
 			data=<MyAdress addresses={this.state.addresses} addressAdded={this.handleAddNewAddress} addressDeleted={this.handleDeleteAddress}/>
 	  }
 
   	this.mainContent = <p>{data}</p>;
+	}
+
+	handleUserEdit(user) {
+		let currentUser = UserService.getCurrentUser()
+		user._id = currentUser._id;
+		UserService.edit(user).then(response => {
+			if ( response.success ) {
+				UserService.setCurrentUser(response.data.user);		
+				this.setState({
+					account: UserService.getCurrentUser()
+				})
+			}
+		}).catch(e => {
+			console.log(e);
+		})
 	}
 	
 	handleAddNewAddress(address) {

@@ -37,6 +37,23 @@ export default class UserService {
         });
     }
 
+    static edit(user) {
+        let url = UserService.baseURL() + "/edit"
+        return new Promise((resolve, reject) => {
+            HttpService.post(url, {
+                _id: user._id,
+                email: user.email,
+                name: user.name,
+                surname: user.surname,
+                picture: user.picture
+            }, function(data) {
+                resolve(data);
+            }, function(textStatus) {
+                reject(textStatus);
+            });
+        });
+    }
+
     static logout(){
         window.localStorage.removeItem('jwtToken');
         window.localStorage.removeItem('user');
