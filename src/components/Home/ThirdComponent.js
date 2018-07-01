@@ -41,7 +41,7 @@ class ThirdComponent extends React.Component {
             );
         }
         else {
-            console.log("meals empty")
+            console.log("menu empty")
             return null
         }
     }
