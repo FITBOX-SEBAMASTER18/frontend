@@ -82,12 +82,9 @@ export class MealView extends React.Component {
                     <div className="md-cell md-cell--6">
                         <div className="md-grid">
                             <div className="md-cell md-cell--6" >
-                                <p style={{verticalAlign: 'middle'}}>
+                                <h2 style={{verticalAlign: 'middle'}}>
                                     {this.state.meal.name}
-                                </p>
-                            </div>
-                            <div className="md-cell md-cell--6" align="right">
-                                <Button icon primary onClick={this.addMealToCart} >add_shopping_cart</Button>
+                                </h2>
                             </div>
                         </div>
                         <div className="md-grid">
@@ -129,6 +126,9 @@ export class MealView extends React.Component {
                                 <p align="justify">
                                     {this.state.meal.description}
                                 </p>
+                            </div>
+                            <div className="md-cell md-cell--12" align="right">
+                                <Button raised primary onClick={this.addMealToCart} ><b>Add To Cart:</b> {this.state.meal.price} Euro</Button>
                             </div>
                         </div>
                     </div>
