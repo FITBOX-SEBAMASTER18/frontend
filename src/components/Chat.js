@@ -13,7 +13,7 @@ export class Chat extends React.Component {
     super();
     this.state = {
         messageList: [],
-        user: {},
+        user: { },
       };
     socket.on('RECEIVE_MESSAGE', function(data){
       console.log("RECEIVE_MESSAGE");
@@ -37,8 +37,13 @@ export class Chat extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ user: UserService.getCurrentUser()});
-    console.log(UserService.getCurrentUser());
+    let guest = {
+      name: "Guest",
+      _id: ""
+    };
+    let user = UserService.getCurrentUser();
+    user ? this.setState({ user: user}) : this.setState( {user: guest});
+    
     addResponseMessage("Welcome to FitBox!")
   }
 

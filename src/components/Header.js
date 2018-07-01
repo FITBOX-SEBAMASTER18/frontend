@@ -31,6 +31,7 @@ class Header extends React.Component {
     handleLogout(){
         UserService.logout();
         this.props.history.push("/");
+        location.reload();
         this.addToast('Logged Out!');
     }
     dismissToast(){
