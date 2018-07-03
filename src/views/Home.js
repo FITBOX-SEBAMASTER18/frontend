@@ -12,6 +12,7 @@ import VoteService from '../services/VoteService';
 import ReactPageScroller from "react-page-scroller";
 import VoteModal from '../components/VoteModal';
 import '../components/Home/home.scss'
+import UserService from '../services/UserService';
 export class Home extends React.Component {
 
     constructor(props) {
@@ -39,6 +40,7 @@ export class Home extends React.Component {
         this.setState({
             loading: true
         })
+
         MenuService.getMenu().then( response => {
             console.log(response)
             if (response.success) { 
@@ -51,29 +53,32 @@ export class Home extends React.Component {
             console.log(e)
         })
 
-        MealService.getMeals().then( response => {
-            console.log(response)
-            if (response.success) { 
-                let tempMeals = getRandom(response.data, 3);
-                console.log("tempMeals")
-                console.log(tempMeals);
-                this.setState({
-                    meals: tempMeals,
-                    loading: false
-                })         
-            }
-        }).catch(e => {
-            console.log(e)
-        })
+        if (UserService.isAuthenticated()){
 
-        VoteService.hasVoted().then( response =>{
-            console.log("Vote")
-            console.log(response)
-            this.setState({ hasVoted: true });
-        }).catch(e => {
-            this.setState({ hasVoted: false });
-            console.log(e)
-        })
+            MealService.getMeals().then( response => {
+                console.log(response)
+                if (response.success) { 
+                    let tempMeals = getRandom(response.data, 3);
+                    console.log("tempMeals")
+                    console.log(tempMeals);
+                    this.setState({
+                        meals: tempMeals,
+                        loading: false
+                    })         
+                }
+            }).catch(e => {
+                console.log(e)
+            })
+    
+            VoteService.hasVoted().then( response =>{
+                console.log("Vote")
+                console.log(response)
+                this.setState({ hasVoted: true });
+            }).catch(e => {
+                this.setState({ hasVoted: false });
+                console.log(e)
+            })
+        }
     }
 
     render() {
