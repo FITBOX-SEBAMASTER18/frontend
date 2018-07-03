@@ -14,7 +14,7 @@ class CartView extends React.Component {
 			this.state = {
 				cart: undefined,
 				addresses: [],
-				selectedAddress: 0,
+				selectedAddress: -1,
 				selectedAddressLabel: ""
 			}
 			this.handleDelete = this.handleDelete.bind(this);
@@ -89,7 +89,7 @@ class CartView extends React.Component {
 	          </Cell>
 	          <Cell size={3}>
 	          	<AddressList addresses={this.state.addresses} setAddressID={this.setAddressID}></AddressList>
-							<Button onClick={() => {this.purchase()}} raised primary className="md-row md-full-width">Purchase
+							<Button disabled={!(this.state.cart !== undefined && this.state.cart.meals.length !== 0 && this.state.selectedAddress !== -1)} onClick={() => {this.purchase()}} raised primary className="md-row md-full-width">Purchase
 							</Button>
 						</Cell>
           </Grid>
